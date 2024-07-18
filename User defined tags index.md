@@ -24,7 +24,7 @@ Returns aspect ratio and image format (landscape/portrait/square) of image
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=84556
 
-Replaces my own previous config
+Replaces my own previous config  
 https://exiftool.org/forum/index.php?msg=36847
 
 ## astronomy visualization metadata exiftool profile
@@ -61,7 +61,7 @@ https://exiftool.org/forum/index.php?msg=75673
 For use with `exiv2`/Digikam `XMP-audio`/`XMP-video` tags. Unfortunately, there are a **lot** of these tags and `exiv2` does not do any sanity checks on the data it is embedding, so there isn't a way to create a proper test file.
 
 ### 2 Tags created
-Extensive list, see config file or run this command with the config file
+Extensive list, see config file or run this command with the config file  
 `exiftool -config DigiKam_Audio_Video_tags.config -list -xmp-audio:all -list -xmp-video:all`
 
 ### 3 Source
@@ -84,7 +84,7 @@ https://exiftool.org/forum/index.php?msg=81852
 ## DirTree
 ### 1 Description
 Creates list out of directory path.  
-Example use, adding each directory level to the `Keywords` tag.
+Example use, adding each directory level to the `Keywords` tag.  
 Might be deprecated and possible to replace by inline code.
 
 ### 2 Tags created
@@ -134,7 +134,7 @@ Unknown if there are other tags in the `XMP-excire` group
 
 ## GPSDateTimeLocal
 ### 1 Description
-Returns `GPSDateTime` converted to local time and time zone
+Returns `GPSDateTime` converted to local time and time zone  
 Convert to helper function?
 
 ### 2 Tags created
@@ -161,22 +161,22 @@ https://exiftool.org/forum/index.php?msg=40917
 Needs more information
 
 ### 2 Tags created
-`XMP-isadg` tags, unsure of exact names
-Multiple structures
-`XMP-isadg:Alliedmaterials`
-`XMP-isadg:Conditionsaccessuse`
-`XMP-isadg:Contentstructure`
-`XMP-isadg:Context`
-`XMP-isadg:Descriptioncontrol`
-`XMP-isadg:Identity`
-Standard tag
-`XMP-isadg:NotesNote`
+`XMP-isadg` tags, unsure of exact names  
+Multiple structures  
+`XMP-isadg:Alliedmaterials`  
+`XMP-isadg:Conditionsaccessuse`  
+`XMP-isadg:Contentstructure`  
+`XMP-isadg:Context`  
+`XMP-isadg:Descriptioncontrol`  
+`XMP-isadg:Identity`  
+Standard tag  
+`XMP-isadg:NotesNote`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=67187
 
 ### 4 Notes
-Related link?
+Related link?  
 https://web.archive.org/web/20231207063626/https://docs.museosabiertos.org/en/recursos/isadg
 
 ## join_tags.config
@@ -190,7 +190,7 @@ Can be used to join KEY:VALUE paired tags. Originally for `AcquisitionRecordGrou
 https://exiftool.org/forum/index.php?msg=63788
 
 ### 4 Notes
-There is a version of this to deal with MKV files
+There is a version of this to deal with MKV files  
 https://exiftool.org/forum/index.php?msg=63802
 
 ## Jpeg Compression Ratio
@@ -198,7 +198,7 @@ https://exiftool.org/forum/index.php?msg=63802
 Generates a ratio of the uncompressed size to the compressed size of a jpeg
 
 ### 2 Tags created
-`Composite:JPEGCompression`
+`Composite:JPEGCompression`  
 `Composite:JPEGBitsPerPixel`
 
 ### 3 Source
@@ -213,12 +213,12 @@ More data needed
 `XMP-ns:LayerGroups`
 
 #### 2 Flattened Tags
-`XMP-ns:LayerGroupsName`
-`XMP-ns:LayerGroupsFileSuffix`
-`XMP-ns:LayerGroupsName`
-`XMP-ns:LayerGroupsProfileName`
-`XMP-ns:LayerGroupsProfileOverride`
-`XMP-ns:LayerGroupsResizeOps`
+`XMP-ns:LayerGroupsName`  
+`XMP-ns:LayerGroupsFileSuffix`  
+`XMP-ns:LayerGroupsName`  
+`XMP-ns:LayerGroupsProfileName`  
+`XMP-ns:LayerGroupsProfileOverride`  
+`XMP-ns:LayerGroupsResizeOps`  
 `XMP-ns:LayerGroupsXmlRawData`
 
 ### 3 Source
@@ -235,39 +235,39 @@ Calculates the percentage of image area allocated to each region
 https://exiftool.org/forum/index.php?msg=55744
 
 ### 4 Notes
-Only works on Microsoft regions.
-Possible to do: expand to other region types.
+Only works on Microsoft regions.  
+Possible to do: expand to other region types.  
 Might be better to get the full structure, as I think this will fail on regions without a name
 
 ## MWGKeywordsConversion
 ### 1 Description
-Converts MWG Keywords into `HierarchicalSubject` as well as the reverse
+Converts MWG Keywords into `HierarchicalSubject` as well as the reverse  
 Note, may not be accurate as I may have not correctly understood the standard
 
 ### 2 Tags created
-`Composite:MWGKeywordsToHS`
-`Composite:HSToMWGKeywords`
+`Composite:MWGKeywordsToHS`  
+`Composite:HSToMWGKeywords`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=48355
 
 ### 4 Notes
-Related link
+Related link  
 https://exiftool.org/forum/index.php?msg=47676
 
 ## My Timezone lookup
 ### 1 Description
-Uses Google's TimeZone api to get time zone data for a specific city/country or GPS coordinates.
-Requires a Google TimeZone api key, which requires a billing account and will charge with after monthly credit is used
-See
+Uses Google's TimeZone api to get time zone data for a specific city/country or GPS coordinates.  
+Requires a Google TimeZone api key, which requires a billing account and will charge with after monthly credit is used  
+See  
 https://developers.google.com/maps/documentation/timezone/get-api-key
 
 ### 2 Tags created
-`Composite:GoogleLookUpTimeZone`
-`Composite:GoogleLookUpTimeZoneDaylightSavings`
-`Composite:GoogleLookUpTimeZoneID`
-`Composite:GoogleLookUpTimeZoneName`
-`Composite:GoogleLookUpTimeZoneRaw`
+`Composite:GoogleLookUpTimeZone`  
+`Composite:GoogleLookUpTimeZoneDaylightSavings`  
+`Composite:GoogleLookUpTimeZoneID`  
+`Composite:GoogleLookUpTimeZoneName`  
+`Composite:GoogleLookUpTimeZoneRaw`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=58904
@@ -287,12 +287,12 @@ https://exiftool.org/forum/index.php?msg=47534
 Config file to edit MyloEdit tags,
 
 ### 2 Tags created
-`XMP-MY:DateRangeEnd`
-`XMP-MY:DateRangeScope`
-`XMP-MY:DateRangeStart`
-`XMP-MY:Flag`
-`XMP-MY:MetadataDate`
-`XMP-MY:ProcessVersion`
+`XMP-MY:DateRangeEnd`  
+`XMP-MY:DateRangeScope`  
+`XMP-MY:DateRangeStart`  
+`XMP-MY:Flag`  
+`XMP-MY:MetadataDate`  
+`XMP-MY:ProcessVersion`  
 `XMP-MY:Undated`
 
 ### 3 Source
@@ -310,33 +310,33 @@ https://exiftool.org/forum/index.php?msg=52458
 
 ## Nikon View NKSC config 1
 ### 1 Description
-`viewnx.config`
+`viewnx.config`  
 Reads data from Nikon NKSC sidecar files
 
 ### 2 Tags created
-`XMP-Sdc:About`
-`XMP-Sdc:Version`
-`XMP-Sdc:Appversion`
-`XMP-Sdc:Appname`
-`GPS-Ast:About`
-`GPS-Ast:Version`
-`GPS-Ast:GPSVersionID`
-`GPS-Ast:GPSVersionIDType`
-`GPS-Ast:GPSLatitudeRef`
-`GPS-Ast:GPSLatitudeRefType`
-`GPS-Ast:GPSLatitude`
-`GPS-Ast:GPSLatitudeType`
-`GPS-Ast:GPSLongitudeRef`
-`GPS-Ast:GPSLongitudeRefType`
-`GPS-Ast:GPSLongitude`
-`GPS-Ast:GPSLongitudeType`
-`GPS-Ast:GPSMapDatum`
-`GPS-Ast:GPSMapDatumType`
-`XMP-Nine:About`
-`XMP-Nine:Version`
-`XMP-Nine:NineEdits`
-`XMP-Nine:Label`
-`XMP-Nine:Rating`
+`XMP-Sdc:About`  
+`XMP-Sdc:Version`  
+`XMP-Sdc:Appversion`  
+`XMP-Sdc:Appname`  
+`GPS-Ast:About`  
+`GPS-Ast:Version`  
+`GPS-Ast:GPSVersionID`  
+`GPS-Ast:GPSVersionIDType`  
+`GPS-Ast:GPSLatitudeRef`  
+`GPS-Ast:GPSLatitudeRefType`  
+`GPS-Ast:GPSLatitude`  
+`GPS-Ast:GPSLatitudeType`  
+`GPS-Ast:GPSLongitudeRef`  
+`GPS-Ast:GPSLongitudeRefType`  
+`GPS-Ast:GPSLongitude`  
+`GPS-Ast:GPSLongitudeType`  
+`GPS-Ast:GPSMapDatum`  
+`GPS-Ast:GPSMapDatumType`  
+`XMP-Nine:About`  
+`XMP-Nine:Version`  
+`XMP-Nine:NineEdits`  
+`XMP-Nine:Label`  
+`XMP-Nine:Rating`  
 `XMP-Nine:Trim`
 
 ### 3 Source
@@ -347,25 +347,25 @@ https://exiftool.org/forum/index.php?msg=52393
 Tony Northrup's idea of an image setting standard
 
 ### 2 Tags created
-Shortcut Tags
-`NorthrupSC` Contains
+Shortcut Tags  
+`NorthrupSC` Contains  
 
-- `Aperture`
-- `ShutterSpeed`
-- `FocalLength`
-- `ISO`
-- `POV`
-- `ScaleFactor35efl`
+- `Aperture`  
+- `ShutterSpeed`  
+- `FocalLength`  
+- `ISO`  
+- `POV`  
+- `ScaleFactor35efl`  
 
-`PrintSize` Contains
+`PrintSize` Contains  
 
-- `NativeImageSize`
-- `PhysicalImageSizeB`
+- `NativeImageSize`  
+- `PhysicalImageSizeB`  
 
 Composite Tags
-`Composite:NativeImageSize`
-`Composite:Northrup35`
-`Composite:NorthrupAuto1`
+`Composite:NativeImageSize`  
+`Composite:Northrup35`  
+`Composite:NorthrupAuto1`  
 `Composite:PhysicalImageSizeB`
 
 ### 3 Source
@@ -381,7 +381,7 @@ Returns oldest Date/time stamp out of multiple common tags.
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=40753
 
-Requires PrintConv patch as listed in this post
+Requires PrintConv patch as listed in this post  
 https://exiftool.org/forum/index.php?msg=43926
 
 ## PhaseOne aerialgps namespace
@@ -389,29 +389,29 @@ https://exiftool.org/forum/index.php?msg=43926
 Tags for aerialgps
 
 ### 2 Tags created
-`XMP-aerialgps:GPSAltitudeAccuracy`
-`XMP-aerialgps:GPSEventID`
-`XMP-aerialgps:GPSFlightAltitude`
-`XMP-aerialgps:GPSFlightAltitudeRef`
-`XMP-aerialgps:GPSFlightLatitude`
-`XMP-aerialgps:GPSFlightLongitude`
-`XMP-aerialgps:GPSIMUFlightPitch`
-`XMP-aerialgps:GPSIMUFlightRoll`
-`XMP-aerialgps:GPSIMUFlightYaw`
-`XMP-aerialgps:GPSIMUFlightYawRef`
-`XMP-aerialgps:GPSIMUPitch`
-`XMP-aerialgps:GPSIMURoll`
-`XMP-aerialgps:GPSIMUYaw`
-`XMP-aerialgps:GPSIMUYawRef`
-`XMP-aerialgps:GPSLatitudeAccuracy`
-`XMP-aerialgps:GPSLongitudeAccuracy`
+`XMP-aerialgps:GPSAltitudeAccuracy`  
+`XMP-aerialgps:GPSEventID`  
+`XMP-aerialgps:GPSFlightAltitude`  
+`XMP-aerialgps:GPSFlightAltitudeRef`  
+`XMP-aerialgps:GPSFlightLatitude`  
+`XMP-aerialgps:GPSFlightLongitude`  
+`XMP-aerialgps:GPSIMUFlightPitch`  
+`XMP-aerialgps:GPSIMUFlightRoll`  
+`XMP-aerialgps:GPSIMUFlightYaw`  
+`XMP-aerialgps:GPSIMUFlightYawRef`  
+`XMP-aerialgps:GPSIMUPitch`  
+`XMP-aerialgps:GPSIMURoll`  
+`XMP-aerialgps:GPSIMUYaw`  
+`XMP-aerialgps:GPSIMUYawRef`  
+`XMP-aerialgps:GPSLatitudeAccuracy`  
+`XMP-aerialgps:GPSLongitudeAccuracy`  
 `XMP-aerialgps:GPSRelativeAltitude`
 
 ### 3 Source
-Original
-https://exiftool.org/forum/index.php?msg=75396
-Current
-https://exiftool.org/forum/index.php?msg=77952
+Original  
+https://exiftool.org/forum/index.php?msg=75396  
+Current   
+https://exiftool.org/forum/index.php?msg=77952  
 
 ### 4 Notes
 This is a good config to reference when creating GPS type tags
@@ -422,161 +422,162 @@ This is a good config to reference when creating GPS type tags
 Tags within the `Photoshop` group. Not very useful under most circumstances
 
 ### 2 Tags created
-`Photoshop:PhotoshopThumbnail`
-`Photoshop:JPEG_Quality`
-`Photoshop:ResolutionInfo`
-`Photoshop:DisplayInfo`
-`Photoshop:BorderInformation`
-`Photoshop:PrintFlags`
-`Photoshop:DuotoneImageInfo`
-`Photoshop:XMLData`
-`Photoshop:RawImageMode`
-`Photoshop:Slices`
-`Photoshop:EffectsVisible`
+`Photoshop:PhotoshopThumbnail`  
+`Photoshop:JPEG_Quality`  
+`Photoshop:ResolutionInfo`  
+`Photoshop:DisplayInfo`  
+`Photoshop:BorderInformation`  
+`Photoshop:PrintFlags`  
+`Photoshop:DuotoneImageInfo`  
+`Photoshop:XMLData`  
+`Photoshop:RawImageMode`  
+`Photoshop:Slices`  
+`Photoshop:EffectsVisible`  
 `Photoshop:VersionInfo`
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=6102
 
 ## pix4d.config and MicaSense.config
-Tags specific for Pix4d drone mapping software and MicaSense
+Tags specific for Pix4d drone mapping software and MicaSense  
 Some of `XMP-Camera` tags are duplicated between the two. The `MicaSense.config` contains the `XMP-DLS` and `XMP-MicaSense` groups. It seems to be directly from the manufacturer
 
 ### MicaSense.config
 #### 1 Description
-More data needed
-There are fewer `XMP-Camera` tags and an incorrect duplicate of `Bandname` (lower case 'n') which should be removed. Differences in `XMP-Camera` can be see by this link
+More data needed  
+There are fewer `XMP-Camera` tags and an incorrect duplicate of `Bandname` (lower case 'n') which should be removed. Differences in `XMP-Camera` can be see by this link  
 https://www.diffchecker.com/FKawOL2U/
 
 #### 2 Tags created
-`XMP-Camera:AboveGroundAltitude`
-`XMP-Camera:BandName`
-`XMP-Camera:Bandname`
-`XMP-Camera:BandSensitivity`
-`XMP-Camera:CentralWavelength`
-`XMP-Camera:GPSXYAccuracy`
-`XMP-Camera:GPSZAccuracy`
-`XMP-Camera:Irradiance`
-`XMP-Camera:IrradiancePitch`
-`XMP-Camera:IrradianceRoll`
-`XMP-Camera:IrradianceYaw`
-`XMP-Camera:IsNormalized`
-`XMP-Camera:ModelType`
-`XMP-Camera:PerspectiveDistortion`
-`XMP-Camera:PerspectiveFocalLength`
-`XMP-Camera:PerspectiveFocalLengthUnits`
-`XMP-Camera:Pitch`
-`XMP-Camera:PrincipalPoint`
-`XMP-Camera:RigCameraIndex`
-`XMP-Camera:RigName`
-`XMP-Camera:RigRelatives`
-`XMP-Camera:Roll`
-`XMP-Camera:SensorBitDepth`
-`XMP-Camera:SerialNumber`
-`XMP-Camera:VignettingCenter`
-`XMP-Camera:VignettingPolynomial`
-`XMP-Camera:WavelengthFWHM`
-`XMP-Camera:Yaw`
-`XMP-DLS:Bandwidth`
-`XMP-DLS:CenterWavelength`
-`XMP-DLS:DirectIrradiance`
-`XMP-DLS:EstimatedDirectLightVector`
-`XMP-DLS:HorizontalIrradiance`
-`XMP-DLS:Pitch`
-`XMP-DLS:Roll`
-`XMP-DLS:ScatteredIrradiance`
-`XMP-DLS:Serial`
-`XMP-DLS:SolarAzimuth`
-`XMP-DLS:SolarElevation`
-`XMP-DLS:SpectralIrradiance`
-`XMP-DLS:SwVersion`
-`XMP-DLS:TimeStamp`
-`XMP-DLS:Yaw`
-`XMP-MicaSense:BootTimestamp`
-`XMP-MicaSense:CaptureId`
-`XMP-MicaSense:DarkRowValue`
-`XMP-MicaSense:FlightId`
-`XMP-MicaSense:ImagerTemperatureC`
-`XMP-MicaSense:PressureAlt`
-`XMP-MicaSense:RadiometricCalibration`
-`XMP-MicaSense:TriggerMethod`
+`XMP-Camera:AboveGroundAltitude`  
+`XMP-Camera:BandName`  
+`XMP-Camera:Bandname`  
+`XMP-Camera:BandSensitivity`  
+`XMP-Camera:CentralWavelength`  
+`XMP-Camera:GPSXYAccuracy`  
+`XMP-Camera:GPSZAccuracy`  
+`XMP-Camera:Irradiance`  
+`XMP-Camera:IrradiancePitch`  
+`XMP-Camera:IrradianceRoll`  
+`XMP-Camera:IrradianceYaw`  
+`XMP-Camera:IsNormalized`  
+`XMP-Camera:ModelType`  
+`XMP-Camera:PerspectiveDistortion`  
+`XMP-Camera:PerspectiveFocalLength`  
+`XMP-Camera:PerspectiveFocalLengthUnits`  
+`XMP-Camera:Pitch`   
+`XMP-Camera:PrincipalPoint`  
+`XMP-Camera:RigCameraIndex`  
+`XMP-Camera:RigName`  
+`XMP-Camera:RigRelatives`  
+`XMP-Camera:Roll`  
+`XMP-Camera:SensorBitDepth`  
+`XMP-Camera:SerialNumber`  
+`XMP-Camera:VignettingCenter`  
+`XMP-Camera:VignettingPolynomial`  
+`XMP-Camera:WavelengthFWHM`  
+`XMP-Camera:Yaw`  
+`XMP-DLS:Bandwidth`  
+`XMP-DLS:CenterWavelength`  
+`XMP-DLS:DirectIrradiance`  
+`XMP-DLS:EstimatedDirectLightVector`  
+`XMP-DLS:HorizontalIrradiance`  
+`XMP-DLS:Pitch`  
+`XMP-DLS:Roll`  
+`XMP-DLS:ScatteredIrradiance`  
+`XMP-DLS:Serial`  
+`XMP-DLS:SolarAzimuth`  
+`XMP-DLS:SolarElevation`  
+`XMP-DLS:SpectralIrradiance`  
+`XMP-DLS:SwVersion`  
+`XMP-DLS:TimeStamp`  
+`XMP-DLS:Yaw`  
+`XMP-MicaSense:BootTimestamp`  
+`XMP-MicaSense:CaptureId`  
+`XMP-MicaSense:DarkRowValue`  
+`XMP-MicaSense:FlightId`  
+`XMP-MicaSense:ImagerTemperatureC`  
+`XMP-MicaSense:PressureAlt`  
+`XMP-MicaSense:RadiometricCalibration`  
+`XMP-MicaSense:TriggerMethod`  
 
 #### 3 Source
 https://exiftool.org/forum/index.php?msg=56094
 
 ### pix4d.config
 #### 1 Description
-More data needed
+More data needed  
 https://www.pix4d.com/
+Error with the `CentralWaveLength`/`CentralWavelength` tag. One has uppercase L, the other a lowercase one.
 
 #### 2 Tags created
-`XMP-Camera:AboveGroundAltitude`
-`XMP-Camera:Albedo`
-`XMP-Camera:BandName`
-`XMP-Camera:BandName`
-`XMP-Camera:BandSensitivity`
-`XMP-Camera:BlackCurrent`
-`XMP-Camera:CalibrationPicture`
-`XMP-Camera:CaptureUUID`
-`XMP-Camera:CentralWavelength`
-`XMP-Camera:CentralWaveLength`
-`XMP-Camera:ColorTransform`
-`XMP-Camera:FisheyeAffineMatrix`
-`XMP-Camera:FisheyeAffineSymmetric`
-`XMP-Camera:FisheyePolynomial`
-`XMP-Camera:FlightUUID`
-`XMP-Camera:GPSXYAccuracy`
-`XMP-Camera:GPSZAccuracy`
-`XMP-Camera:GyroRate`
-`XMP-Camera:IMUAngularVelocity`
-`XMP-Camera:IMUFrequency`
-`XMP-Camera:IMULinearVelocity`
-`XMP-Camera:IMUPitchAccuracy`
-`XMP-Camera:IMURollAccuracy`
-`XMP-Camera:IMUSampleSize`
-`XMP-Camera:IMUTimeOffset`
-`XMP-Camera:IMUYawAccuracy`
-`XMP-Camera:InvalidPixel`
-`XMP-Camera:IrradianceRelativeRotation`
-`XMP-Camera:IsNormalized`
-`XMP-Camera:LineReadoutTime`
-`XMP-Camera:ModelType`
-`XMP-Camera:NominalCameraDistance`
-`XMP-Camera:PerspectiveDistortion`
-`XMP-Camera:PerspectiveFocalLength`
-`XMP-Camera:PerspectiveFocalLengthUnits`
-`XMP-Camera:Pitch`
-`XMP-Camera:PrincipalPoint`
-`XMP-Camera:ReflectArea`
-`XMP-Camera:RigCameraIndex`
-`XMP-Camera:RigName`
-`XMP-Camera:RigRelatives`
-`XMP-Camera:Roll`
-`XMP-Camera:SensorBitDepth`
-`XMP-Camera:SensorTemperature`
-`XMP-Camera:SunSensor`
-`XMP-Camera:SunSensorExposureTime`
-`XMP-Camera:SunSensorPitch`
-`XMP-Camera:SunSensorRelativeRotation`
-`XMP-Camera:SunSensorRoll`
-`XMP-Camera:SunSensorSensitivity`
-`XMP-Camera:SunSensorYaw`
-`XMP-Camera:TransformAlpha`
-`XMP-Camera:TransformBeta`
-`XMP-Camera:TransformGamma`
-`XMP-Camera:VignettingCenter`
-`XMP-Camera:VignettingPolynomial`
-`XMP-Camera:VignettingPolynomial2D`
-`XMP-Camera:VignettingPolynomial2DName`
-`XMP-Camera:WavelengthFWHM`
-`XMP-Camera:Yaw`
+`XMP-Camera:AboveGroundAltitude`  
+`XMP-Camera:Albedo`  
+`XMP-Camera:BandName`  
+`XMP-Camera:BandName`  
+`XMP-Camera:BandSensitivity`  
+`XMP-Camera:BlackCurrent`  
+`XMP-Camera:CalibrationPicture`  
+`XMP-Camera:CaptureUUID`  
+`XMP-Camera:CentralWavelength`  
+`XMP-Camera:CentralWaveLength`  
+`XMP-Camera:ColorTransform`  
+`XMP-Camera:FisheyeAffineMatrix`  
+`XMP-Camera:FisheyeAffineSymmetric`  
+`XMP-Camera:FisheyePolynomial`  
+`XMP-Camera:FlightUUID`  
+`XMP-Camera:GPSXYAccuracy`  
+`XMP-Camera:GPSZAccuracy`  
+`XMP-Camera:GyroRate`  
+`XMP-Camera:IMUAngularVelocity`  
+`XMP-Camera:IMUFrequency`  
+`XMP-Camera:IMULinearVelocity`  
+`XMP-Camera:IMUPitchAccuracy`  
+`XMP-Camera:IMURollAccuracy`  
+`XMP-Camera:IMUSampleSize`  
+`XMP-Camera:IMUTimeOffset`  
+`XMP-Camera:IMUYawAccuracy`  
+`XMP-Camera:InvalidPixel`  
+`XMP-Camera:IrradianceRelativeRotation`  
+`XMP-Camera:IsNormalized`  
+`XMP-Camera:LineReadoutTime`  
+`XMP-Camera:ModelType`  
+`XMP-Camera:NominalCameraDistance`  
+`XMP-Camera:PerspectiveDistortion`  
+`XMP-Camera:PerspectiveFocalLength`  
+`XMP-Camera:PerspectiveFocalLengthUnits`  
+`XMP-Camera:Pitch`  
+`XMP-Camera:PrincipalPoint`  
+`XMP-Camera:ReflectArea`  
+`XMP-Camera:RigCameraIndex`  
+`XMP-Camera:RigName`  
+`XMP-Camera:RigRelatives`  
+`XMP-Camera:Roll`  
+`XMP-Camera:SensorBitDepth`  
+`XMP-Camera:SensorTemperature`  
+`XMP-Camera:SunSensor`  
+`XMP-Camera:SunSensorExposureTime`  
+`XMP-Camera:SunSensorPitch`  
+`XMP-Camera:SunSensorRelativeRotation`  
+`XMP-Camera:SunSensorRoll`  
+`XMP-Camera:SunSensorSensitivity`  
+`XMP-Camera:SunSensorYaw`  
+`XMP-Camera:TransformAlpha`  
+`XMP-Camera:TransformBeta`  
+`XMP-Camera:TransformGamma`  
+`XMP-Camera:VignettingCenter`  
+`XMP-Camera:VignettingPolynomial`  
+`XMP-Camera:VignettingPolynomial2D`  
+`XMP-Camera:VignettingPolynomial2DName`  
+`XMP-Camera:WavelengthFWHM`  
+`XMP-Camera:Yaw`  
 
 #### 3 Source
-Now included in the main archive (move this to depricated?)
+Now included in the main archive (move this to depricated?)  
 https://github.com/exiftool/exiftool/blob/master/config_files/pix4d.config
 
-Older versions
-https://exiftool.org/forum/index.php?msg=45083
+Older versions  
+https://exiftool.org/forum/index.php?msg=45083  
 https://exiftool.org/forum/index.php?msg=58806
 
 ## Pixel Aspect Ratio
@@ -594,7 +595,7 @@ https://exiftool.org/forum/index.php?msg=63600
 Extracts color data in human readable form from the PNG `Palette`/`Transparency` tags
 
 ### 2 Tags created
-`PNG:Palette`
+`PNG:Palette`  
 `PNG:Transparency`
 
 ### 3 Source
@@ -607,9 +608,9 @@ On Windows when browsers download a file, they save some data in a Windows Alter
 This is an example of reading other files from a config file.
 
 ### 2 Tags created
-`Composite:ZoneID`
-`Composite:ZoneIDReferrerUrl`
-`Composite:ZoneIDHostUrl`
+`Composite:ZoneID`  
+`Composite:ZoneIDReferrerUrl`  
+`Composite:ZoneIDHostUrl`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=76121
@@ -619,7 +620,7 @@ https://exiftool.org/forum/index.php?msg=76121
 Removes MWG and Microsoft regions with duplicated names. Relies **only** on the name and does not compare the actual region size data
 
 ### 2 Tags created
-`Composite:RemoveRegionInfoDuplicates`
+`Composite:RemoveRegionInfoDuplicates`  
 `Composite:RemoveRegionInfoMPDuplicates`
 
 ### 3 Source
@@ -630,7 +631,7 @@ https://exiftool.org/forum/index.php?msg=40891
 `GPSLatitude`/`GPSLongitude` tags are fixed format, meaning you can't override the data written with the [`-n` (`--printConv`) option](https://exiftool.org/exiftool_pod.html#n---printConv). In this case, the user needed to write blank GPS entries to an XMP sidecar to prevent their main program from using the incorrect data that was embedded in the file
 
 ### 2 Tags created
-`XMP-exif:GPSLatitude`
+`XMP-exif:GPSLatitude`  
 `XMP-exif:GPSLongitude`
 
 ### 3 Source
@@ -665,11 +666,11 @@ Visual Resources Association `XMP-vrae` tags
 Extensive, includes many structured tags, see Github link below
 
 ### 3 Source
-Need to verify exact post in this thread
+Need to verify exact post in this thread  
 https://exiftool.org/forum/index.php?msg=66841
 
 ### 4 Notes
-https://github.com/MetadataDeluxe/VRA-Core-Essentials-ExifTool-config
+https://github.com/MetadataDeluxe/VRA-Core-Essentials-ExifTool-config  
 [http://metadatadeluxe.pbworks.com/w/page/20792294/VRA Embedded Metadata Subcommittee](http://metadatadeluxe.pbworks.com/w/page/20792294/VRA%20Embedded%20Metadata%20Subcommittee)
 
 ## Writing Unknown Sony tags
@@ -677,8 +678,8 @@ https://github.com/MetadataDeluxe/VRA-Core-Essentials-ExifTool-config
 This was an attempt by @Gerein to decode the embedded lens-profiles in Sony's ARW (v2.3.1). The `SR2_tag 0x797d` appears to now be the [`VignettingCorrParams`](https://exiftool.org/TagNames/Sony.html#SR2SubIFD)
 
 ### 2 Tags created
-(part of the `Sony` makernotes group?)
-`Sony_tag`
+(part of the `Sony` makernotes group?)  
+`Sony_tag`  
 `SR2_tag`
 
 ### 3 Source
@@ -689,22 +690,22 @@ https://exiftool.org/forum/index.php?msg=32412
 For use with Xinet Digital Asset Management (DAM) program(?)
 
 ### 2 Tags created
-`XMP-xinet:AM_ImageType`
-`XMP-xinet:AM_Status`
-`XMP-xinet:LastMetadataChange`
+`XMP-xinet:AM_ImageType`  
+`XMP-xinet:AM_Status`  
+`XMP-xinet:LastMetadataChange`  
 `XMP-xinet:usage_locked`
 
 ### 3 Source
-https://exiftool.org/forum/index.php?msg=23820
-work duplicated here
-https://exiftool.org/forum/index.php?msg=36775
+https://exiftool.org/forum/index.php?msg=23820  
+work duplicated here  
+https://exiftool.org/forum/index.php?msg=36775  
 
 ## XMP X/YPosition tags
 ### 1 Description
 Tags to copy the `EXIF:XPosition`/`EXIF:YPosition` tags in XMP, adding them to the `XMP-tiff` namespace
 
 ### 2 Tags created
-`XMP-tiff:XPosition`
+`XMP-tiff:XPosition`  
 `XMP-tiff:YPosition`
 
 ### 3 Source
@@ -729,7 +730,7 @@ ValueConv => q{
     },
 ```
 
-This way does not obay the `-api requestall` option. 
+This way does not obay the `-api requestall` option.   
 To do, Create code to make the other way work and see if that will obay the `-api` call
 
 ## How to set a user defined tag as `Time` group tag
@@ -774,26 +775,26 @@ https://exiftool.org/forum/index.php?msg=40977
 XMP tags in the `XMP-dmf` group. Replaced by version on GitHub
 
 ### 2 Tags created
-Structured tag with extensive (450+) subtags
+Structured tag with extensive (450+) subtags  
 Too many to list
 
 ### 3 Source
-Original Thread
-https://exiftool.org/forum/index.php?msg=38631
-Current Version
+Original Thread  
+https://exiftool.org/forum/index.php?msg=38631  
+Current Version  
 https://github.com/exiftool/exiftool/blob/master/config_files/bibble.config
 
 ## BlueSkySea DV688
 ### 1 Description
-config file for gps data from a BlueSkySea DV688 dashcam
+config file for gps data from a BlueSkySea DV688 dashcam  
 Replaced by built in version(?)
 
 ### 2 Tags created
-`Composite:Accelerometer`
-`Composite:AccelerometerData`
-`Composite:GPSDateTime`
-`Composite:GPSLatitude`
-`Composite:GPSLongitude`
+`Composite:Accelerometer`  
+`Composite:AccelerometerData`  
+`Composite:GPSDateTime`  
+`Composite:GPSLatitude`  
+`Composite:GPSLongitude`  
 `Composite:GPSSpeed`
 
 ### 3 Source
@@ -807,7 +808,6 @@ As title, the dust removal data that can be used to fix an image. Replaced by bu
 `Canon:DustRemovalData`
 
 ### 3 Source
-Original
 https://exiftool.org/forum/index.php?msg=6091
 
 ## Check Orientation (horizontal/verticle)
@@ -825,7 +825,7 @@ The [Aspect Ratio config](#aspect-ratio-config) includes this ability and is a b
 
 ## Extract Thumbnail with proper `Orientation`
 ### 1 Description
-Extracts thumbnail with proper rotation
+Extracts thumbnail with proper rotation  
 Replace by `SetTags` [Helpler Function](https://exiftool.sourceforge.net/exiftool_pod.html#Helper-functions)
 
 ### 2 Tags created
@@ -839,27 +839,27 @@ https://exiftool.org/forum/index.php?msg=63389
 A batch of tags used to format dates. Replaced by the [`-d` (`-dateFormat`) option](https://exiftool.org/exiftool_pod.html#d-FMT--dateFormat) or advanced formatting.
 
 ### 2 Tags created
-`Composite:MyYear`
-`Composite:MyMonth`
-`Composite:MyDay`
+`Composite:MyYear`  
+`Composite:MyMonth`  
+`Composite:MyDay`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=7536
 
 ## Fotostation Custom IPTC IIM records
 ### 1 Description
-Fotoware Fotostation CustomFields
+Fotoware Fotostation CustomFields  
 Replaced and expanded by fotoware.config in main distribution
 
 ### 2 Tags created
-`IPTC:CustomField01`
-through
-`IPTC:CustomField10`
+`IPTC:CustomField01`  
+through  
+`IPTC:CustomField10`  
 
 ### 3 Source
-Original
-https://exiftool.org/forum/index.php?topic=5336#msg25878
-Replacement
+Original  
+https://exiftool.org/forum/index.php?topic=5336#msg25878  
+Replacement  
 https://github.com/exiftool/exiftool/blob/master/config_files/fotoware.config
 
 ## FullFileName
@@ -874,7 +874,7 @@ https://exiftool.org/forum/index.php?msg=29137
 
 ## gdepth.config
 ### 1 Description
-Google Depth Map
+Google Depth Map  
 Now built in [XMP GDepth Tags](https://exiftool.org/TagNames/XMP.html#GDepth)
 
 ### 2 Tags created
@@ -885,14 +885,14 @@ https://exiftool.org/forum/index.php?msg=44109
 
 ## GeoTiff block tags
 ### 1 Description
-Allows copying GeoTiff data as a block
+Allows copying GeoTiff data as a block  
 Replaced with built in `GeoTiffDirectory`/`GeoTiffDoubleParams`/
 `GeoTiffAsciiParams`
 
 ### 2 Tags created
-`EXIF:GeoTiffDirectory`
-`EXIF:GeoTiffDoubleParams`
-`EXIF:GeoTiffAsciiParams`
+`EXIF:GeoTiffDirectory`  
+`EXIF:GeoTiffDoubleParams`  
+`EXIF:GeoTiffAsciiParams`  
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=27253
@@ -919,7 +919,7 @@ https://exiftool.org/forum/index.php?msg=7189
 
 ## Photoshop Resolution tags config
 ### 1 Description
-Allows the setting of Photoshop resolution tags
+Allows the setting of Photoshop resolution tags  
 Replaced by built in tag
 
 ### 2 Tags created
@@ -930,7 +930,7 @@ https://exiftool.org/forum/index.php?msg=16864
 
 ## ReelName.config
 ### 1 Description
-Extracts Quicktime ReelName data
+Extracts Quicktime ReelName data  
 Now built in [Quicktime:UserData](https://exiftool.org/TagNames/QuickTime.html#UserData)
 
 ### 2 Tags created
@@ -947,9 +947,9 @@ Checks to see if TIFF is version 5 or 6
 `Composite:TIFFVersion`
 
 ### 3 Source
-Original thread
-https://exiftool.org/forum/index.php?msg=53068
-Current version
+Original thread  
+https://exiftool.org/forum/index.php?msg=53068  
+Current version  
 https://github.com/exiftool/exiftool/blob/master/config_files/tiff_version.config
 
 

@@ -18,7 +18,7 @@ https://exiftool.org/forum/index.php?msg=85484
 Returns aspect ratio and image format (landscape/portrait/square) of image
 
 ### 2 Tags created
-`Composite:AspectRatio`
+`Composite:AspectRatio`  
 `Composite:ImageFormat`
 
 ### 3 Source
@@ -36,9 +36,9 @@ Many tags, ~39 in `XMP-avm` group
 
 ### 3 Source
 
-Forum post
-https://exiftool.org/forum/index.php?msg=26531
-Config file on GitHub
+Forum post  
+https://exiftool.org/forum/index.php?msg=26531  
+Config file on GitHub  
 https://github.com/clr/astronomy_visualization_metadata_exiftool_profile
 
 ### 4 Notes
@@ -65,25 +65,25 @@ Extensive list, see config file or run this command with the config file
 `exiftool -config DigiKam_Audio_Video_tags.config -list -xmp-audio:all -list -xmp-video:all`
 
 ### 3 Source
-Original post, GPS only tags
+Original post, GPS only tags  
 https://exiftool.org/forum/index.php?topic=15228#msg81856
 
-Full config file
+Full config file  
 https://exiftool.org/forum/index.php?msg=87162
 
 ### 4 Notes
-Links
+Links  
 https://community.kde.org/GSoC/2012/Ideas#Project:_Video_metadata_support
-XMP-video source:
+XMP-video source:  
 https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3424
-XMP-audio source:
+XMP-audio source:  
 https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3975
-Exiftool forum thread, especially the last post: 
+Exiftool forum thread, especially the last post:  
 https://exiftool.org/forum/index.php?msg=81852
 
 ## DirTree
 ### 1 Description
-Creates list out of directory path.
+Creates list out of directory path.  
 Example use, adding each directory level to the `Keywords` tag.
 Might be deprecated and possible to replace by inline code.
 
@@ -95,7 +95,7 @@ https://exiftool.org/forum/index.php?msg=21444
 
 ## Esko XMP structured tags
 ### 1 Description
-Esko XMP ink structure
+Esko XMP ink structure  
 More info on this is needed
 
 ### 2 Tags created
@@ -103,17 +103,17 @@ More info on this is needed
 `XMP-egGr:Inks`
 
 #### 2 Flattened Tags
-`XMP-egGr:InksAngle`
-`XMP-egGr:InksAttribute`
-`XMP-egGr:InksB`
-`XMP-egGr:InksBook`
-`XMP-egGr:InksDotshape`
-`XMP-egGr:InksEgname`
-`XMP-egGr:InksFrequency`
-`XMP-egGr:InksG`
-`XMP-egGr:InksName`
-`XMP-egGr:InksPrintingmethod`
-`XMP-egGr:InksR`
+`XMP-egGr:InksAngle`  
+`XMP-egGr:InksAttribute`  
+`XMP-egGr:InksB`  
+`XMP-egGr:InksBook`  
+`XMP-egGr:InksDotshape`  
+`XMP-egGr:InksEgname`  
+`XMP-egGr:InksFrequency`  
+`XMP-egGr:InksG`  
+`XMP-egGr:InksName`  
+`XMP-egGr:InksPrintingmethod`  
+`XMP-egGr:InksR`  
 `XMP-egGr:InksType`
 
 ### 3 Source

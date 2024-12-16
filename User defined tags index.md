@@ -3,6 +3,56 @@ User defined tags index
 # 1 External User defined tags
 These are user defined tags that must be called using the [`-Config` option](https://exiftool.org/exiftool_pod.html#config-CFGFILE) or by merging them into the `.ExifTool_config` file.
 
+There are several extremely specific user defined tags in the forums, such as [this config](https://exiftool.org/forum/index.php?msg=75641), that have not been included here. These are usually not useful to anyone outside the person using them, though they can be useful as example code. They can be found by searching the forums for `"ExifTool::UserDefined"`.
+
+## Quicktime Full-frame-rate-playback-intent tag
+### 1 Description
+### 2 Tags created  
+`Keys:Full-frame-rate-playback-intent`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=90347
+
+## GeoSetter XMP tag
+### 1 Description
+This tag is part of the `.exiftool_config ` file used by GeoSetter
+### 2 Tags created  
+`XMP-geosetter:ForeignKeys`
+### 3 Source
+Installed with the GeoSetter program. A copy appears in this post
+https://exiftool.org/forum/index.php?msg=15197
+### 4 Notes
+The use is unknown.
+
+## BioLifePro XMP tags
+### 1 Description
+Tags for the `XMP-BioLifePro` group.
+### 2 Tags created  
+`XMP-BioLifePro:BrandName`  
+`XMP-BioLifePro:ExpirationDate`  
+`XMP-BioLifePro:FacingIndicator`  
+`XMP-BioLifePro:FileName`  
+`XMP-BioLifePro:Gdti`  
+`XMP-BioLifePro:Gtin`  
+`XMP-BioLifePro:ProductName`  
+`XMP-BioLifePro:ValidFromDate`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=66714
+### 4 Notes
+These appear to be tags created for private use.
+
+## markdown Template
+### 1 Description
+Tags for the `XMP-levi` group
+### 2 Tags created  
+`XMP-levi:ColorName`  
+`XMP-levi:ImageView`  
+`XMP-levi:ProductCode`  
+`XMP-levi:ProductName`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=27360  
+### 4 Notes
+These appear to be tags created for private use.  
+
 ## Android `XMP:FStop`
 ### 1 Description
 The Android app "F-Stop" uses a "heart" icon that maps to a custom xmp tag.
@@ -35,7 +85,6 @@ Write AVM tags in XMP format to a file using the Perl package Exiftool. The AVM 
 Many tags, ~39 in `XMP-avm` group
 
 ### 3 Source
-
 Forum post  
 https://exiftool.org/forum/index.php?msg=26531  
 Config file on GitHub  
@@ -45,6 +94,16 @@ https://github.com/clr/astronomy_visualization_metadata_exiftool_profile
 The standard looks like it's currently ver 1.2. Not known if there's an update for this config or not
 **Astronomy Visualization Metadata Standard**
 https://www.virtualastronomy.org/avm_metadata.php
+
+## Combined Keywords
+### 1 Description
+Combines the `Subject`, `Keywords`, and `XPKeywords` tags, removes any duplicate entries, and returns the combined list.
+### 2 Tags created
+`Composite:CombineKeys`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=67042
+### 4 Notes
+Probably obsolete with the addition of the [`-api NoDups` option](https://exiftool.org/ExifTool.html#NoDups).
 
 ## Config for buggy software that writes `XMP-iptcCore:Caption`
 ### 1 Description
@@ -56,9 +115,29 @@ There's no such thing as `XMP-iptcCore:Caption` tag, but some unknown software w
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=75673
 
+## Create QR code image from GPS coordinates
+### 1 Description
+Creates a QR code PNG image from the embedded GPS coordinates by running `qrencode` using the coordinates embedded in the file.
+
+This example command will create a QR code PNG for every file in a directory with GPS coordinates. The base filename will have `-QR` appended to it.  
+`exiftool -config GPSQRCode.config -GPSQRCode -b -W %d%f.png y:\!temp\Test4.jpg`
+### 2 Tags created  
+`Composite:GPSQRCode`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=87698
+### 4 Notes
+Source  
+https://github.com/fukuchi/libqrencode  
+Windows Port  
+https://sourceforge.net/projects/qrencode-for-windows/  
+Tutorial  
+https://www.howtogeek.com/devops/how-to-create-qr-codes-from-the-linux-command-line/
+
 ## DigiKam_Audio_Video_tags.config
 ### 1 Description
 For use with `exiv2`/Digikam `XMP-audio`/`XMP-video` tags. Unfortunately, there are a **lot** of these tags and `exiv2` does not do any sanity checks on the data it is embedding, so there isn't a way to create a proper test file.
+
+It's quite probable that some of these are broken, as there are some that are listed as "closed list", but without any details as to what that closed list is supposed to be.
 
 ### 2 Tags created
 Extensive list, see config file or run this command with the config file  
@@ -73,11 +152,11 @@ https://exiftool.org/forum/index.php?msg=87162
 
 ### 4 Notes
 Links  
-https://community.kde.org/GSoC/2012/Ideas#Project:_Video_metadata_support
+https://community.kde.org/GSoC/2012/Ideas#Project:_Video_metadata_support  
 XMP-video source:  
-https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3424
+https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3424  
 XMP-audio source:  
-https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3975
+https://github.com/Exiv2/exiv2/blob/06fe8268dcd2559f8039529c62ea6d97b1adebb3/src/properties.cpp#L3975  
 Exiftool forum thread, especially the last post:  
 https://exiftool.org/forum/index.php?msg=81852
 
@@ -92,6 +171,16 @@ Might be deprecated and possible to replace by inline code.
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=21444
+
+## EarliestDate
+### 1 Description
+Similar to the `OldestDateTime` user defined tag, this tag also includes the name of the oldest tag.
+### 2 Tags created
+`Composite:EarliestDate`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=83979
+### 4 Notes
+Also see OldestDateTime (make this into link)
 
 ## Esko XMP structured tags
 ### 1 Description
@@ -131,6 +220,29 @@ https://exiftool.org/forum/index.php?msg=72877
 
 ### 4 Notes
 Unknown if there are other tags in the `XMP-excire` group
+
+## FacesNotInKeywords 
+### 1 Description
+This tag reads the `Xmp-Microsoft:RegionPersonDisplayName` and compares it to the `Subject` and `Keywords` tags. Any region names that already exist in the `Subject`/`Keywords` tags are removed, leaving only a list of names that could then be added to the `Subject`/`Keywords` tags.
+
+This can be adapted for other region types by changing `Require` tag.
+### 2 Tags created  
+`Composite:FacesNotInKeywords`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=82479
+
+## `GPS2MapUrl.config`
+### 1 Description
+Reads GPS coordinates in a file and creates an URL to various map websites
+### 2 Tags created  
+`Composite:GoogleMapsUrl`  
+`Composite:BingMapsUrl`  
+`Composite:OpenStreetMapsUrl`  
+`Composite:MapquestMapsUrl`  
+`Composite:YandexMapsUrl`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=51226  
+https://github.com/StarGeekSpaceNerd/GPS2MapUrl.config  
 
 ## GPSDateTimeLocal
 ### 1 Description
@@ -239,6 +351,21 @@ Only works on Microsoft regions.
 Possible to do: expand to other region types.  
 Might be better to get the full structure, as I think this will fail on regions without a name
 
+## MobileSheets sheet music reader tag
+### 1 Description
+Tags for use with PDFs used by the MobileSheets sheet music reader program
+### 2 Tags created  
+`XMP-pdfx:Album`  
+`XMP-pdfx:Books`  
+`XMP-pdfx:Duration`  
+`XMP-pdfx:Key`  
+`XMP-pdfx:Source`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=81215
+### 4 Notes
+The `XMP-pdfx` tag group is a catch all for application specific PDF tags. As such, they are not built into exiftool and a config file must be used to write them.  
+See the [`XMP-pdfx](https://exiftool.org/TagNames/XMP.html#pdfx) page.
+
 ## MWGKeywordsConversion
 ### 1 Description
 Converts MWG Keywords into `HierarchicalSubject` as well as the reverse  
@@ -274,13 +401,11 @@ https://exiftool.org/forum/index.php?msg=58904
 
 ## MyHS
 ### 1 Description
-Writes string to `HierarchicalSubject` and leaf keywords to `IPTC:Keywords` and `XMP:Subject`. Possible to do, write only IPTC if it already exists. The `MWG.pm` shows the subroutines to do this
-
-### 2 Tags created
-`Composite:MyHs`
-
+This tag will write to `HierarchicalSubject` and leaf keywords to `IPTC:Keywords` and `XMP:Subject`. It will only write `IPTC:Keywords` if IPTC data exists, which is the equivilent to using the [`-wm cw` (`-writeMode cw`) option](https://exiftool.org/exiftool_pod.html#wm-MODE--writeMode). 
+### 2 Tags created  
+`Composite:MyHS`
 ### 3 Source
-https://exiftool.org/forum/index.php?msg=47534
+https://exiftool.org/forum/index.php?msg=87735
 
 ## MyloEdit tags
 ### 1 Description
@@ -297,16 +422,6 @@ Config file to edit MyloEdit tags,
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=71122
-
-## Nikon View NKSC _config_ 2
-### 1 Description
-A newer version of the previous?
-
-### 2 Tags created
-Need to take time to figure out the differences between this and the other version
-
-### 3 Source
-https://exiftool.org/forum/index.php?msg=52458
 
 ## Nikon View NKSC config 1
 ### 1 Description
@@ -342,6 +457,16 @@ Reads data from Nikon NKSC sidecar files
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=52393
 
+## Nikon View NKSC config 2
+### 1 Description
+A newer version of the previous?
+
+### 2 Tags created
+Need to take time to figure out the differences between this and the other version
+
+### 3 Source
+https://exiftool.org/forum/index.php?msg=52458
+
 ## Northrup Image Standard Config
 ### 1 Description
 Tony Northrup's idea of an image setting standard
@@ -369,7 +494,19 @@ Composite Tags
 `Composite:PhysicalImageSizeB`
 
 ### 3 Source
-https://exiftool.org/forum/index.php?msg=60098
+https://exiftool.org/forum/index.php?msg=60098  
+Youtube source, "Camera settings are outdated. Here's a better way. WARNING: NERDY"  
+https://www.youtube.com/watch?v=OxOZoWtNJuo
+
+## Number of tags in a file
+### 1 Description
+Returns the number of tags exiftool found for a file
+### 2 Tags created  
+`Composite:CountTags`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=71227
+### 4 Notes
+I haven't checked, but this most likely will count flattened tags in addition to the base structered tag. It probably will not count tags that are not normally extracted unless requested, such as the Mac `XAtt*`/`MDItem*` tags.
 
 ## OldestDateTime
 ### 1 Description
@@ -379,14 +516,27 @@ Returns oldest Date/time stamp out of multiple common tags.
 `Composite:OldestDateTime`
 
 ### 3 Source
-https://exiftool.org/forum/index.php?msg=40753
+https://exiftool.org/forum/index.php?msg=40757
 
 Requires PrintConv patch as listed in this post  
 https://exiftool.org/forum/index.php?msg=43926
 
+### 4 Notes
+Also see EarliestDate (make this into link)
+
+## PDF bookmark count
+### 1 Description
+Returns the number of bookmarked pages in a PDF
+### 2 Tags created  
+`UserDefined:NumOutlines`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=79450
+### 4 Notes
+To do, some PDFs will return a `NumOutlines` value of 0 and do not have any bookmarks when the file is opened. A check needs to be added to ignore a value of 0.
+
 ## PhaseOne aerialgps namespace
 ### 1 Description
-Tags for aerialgps
+Tags for `XMP-aerialgps` namespace
 
 ### 2 Tags created
 `XMP-aerialgps:GPSAltitudeAccuracy`  
@@ -648,6 +798,14 @@ Returns US/Canada/Mexico State Abbreviations from State/Province-State data in t
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=44673
 
+## TesseractOCR
+### 1 Description  
+This will run `tesseract` to OCR an image and return the results, which then can be copied to other tags, such as `Description`.  
+### 2 Tags created  
+`Composite:TesseractOCR`
+### 3 Source
+https://exiftool.org/forum/index.php?msg=88106
+
 ## Unicode `UserComment`
 ### 1 Description
 Redefines `UserComment` to force encoding in unicode
@@ -710,7 +868,22 @@ Tags to copy the `EXIF:XPosition`/`EXIF:YPosition` tags in XMP, adding them to t
 
 ### 3 Source
 https://exiftool.org/forum/index.php?msg=7117
-
+## XMP-calibre tags
+### 1 Description
+Tags use by the the Calibre E-book management program
+### 2 Tags created 
+`XMP-calibre:author_link_map`  
+`XMP-calibre:author_sort`  
+`XMP-calibre:custom_metadata`  
+`XMP-calibre:link_maps`  
+`XMP-calibre:rating`  
+`XMP-calibre:series`  
+`XMP-calibre:series_index`   
+`XMP-calibre:timestamp`  
+`XMP-calibre:title_sort`  
+`XMP-calibre:user_categories`  
+### 3 Source
+https://exiftool.org/forum/index.php?msg=81567
 
 # 2 Useful posts on user-defined tags
 ## Adding a warning response to a User Defined Tag
@@ -730,8 +903,11 @@ ValueConv => q{
     },
 ```
 
-This way does not obay the `-api requestall` option.   
+This way does not obey the `-api requestall` option.   
 To do, Create code to make the other way work and see if that will obay the `-api` call
+
+## How to get the tag name of a `$val[#]`
+https://exiftool.org/forum/index.php?msg=83979
 
 ## How to set a user defined tag as `Time` group tag
 Example from the Guano.Config
@@ -755,6 +931,7 @@ The key parts are the `PrintConv` line and the `Groups` line
 https://exiftool.org/forum/index.php?msg=80852
 
 ## Storing binary data in XMP tag
+You can not store arbitrary binary data in XMP.  Commonly Base64 is used to encode data like this.   
 https://exiftool.org/forum/index.php?msg=82170
 
 # 3 Deprecated/Replaced/Built in User Configs
@@ -953,3 +1130,13 @@ Current version
 https://github.com/exiftool/exiftool/blob/master/config_files/tiff_version.config
 
 
+
+
+[0x7FFC41FA68C0] ANOMALY: meaningless REX prefix used
+[0x7FFC41FA6B00] ANOMALY: meaningless REX prefix used
+[0x7FFC41ED9890] ANOMALY: meaningless REX prefix used
+[0x7FFC41ED83F0] ANOMALY: meaningless REX prefix used
+[0x7FFC41ED9B90] ANOMALY: meaningless REX prefix used
+[0x7FFC41FA67A0] ANOMALY: meaningless REX prefix used
+[0x7FFC43BBE380] ANOMALY: use of REX.w is meaningless (default operand size is 64)
+[0x7FFC43BC0D00] ANOMALY: use of REX.w is meaningless (default operand size is 64)

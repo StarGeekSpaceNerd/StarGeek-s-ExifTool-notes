@@ -2,7 +2,59 @@ StarGeek's exiftool notes
 ===
 These are my unsorted notes and links to various use exiftool posts.
 
-# Unsorted notes
+# 1 Unsorted notes
+
+## Running exiftool on a JSON file returns incorrect data
+This happens when the command in FAQ \#3 isn't used. For example, in this sequence of commands, the `MimeType` of a JPEG is saved to a JSON file. When listed, the `MimeType` for the JSON file is reported as `image/jpeg`, not as `application/json`. The command in FAQ \#3 is requrired to see that there is the `MimeType` of the JSON file and the `MimeType` embedded in the JSON file.
+```
+C:\>exiftool -MimeType -j y:\!temp\Test4.jpg  >temp.json
+
+C:\>exiftool -MimeType Temp.json
+MIME Type                       : image/jpeg
+
+C:\>exiftool -G1 -a -s -MimeType Temp.json
+[File]          MIMEType                        : application/json
+[JSON]          MIMEType                        : image/jpeg
+```
+
+## Family History Metadata Working Group (FHMWG)
+A standard for dealing with family history. For the most part, it copies other standards such as the MWG and IPTC standards  
+Main page
+https://github.com/fhmwg/current-tags
+Tag definitions  
+https://github.com/fhmwg/current-tags/blob/stage2-essentials/stage2-essentials-overview.md
+
+## Exiftool is slower when writing PNG files
+https://exiftool.org/forum/index.php?msg=89587
+
+## Setting `AllDates` from filenames that have incomplete date/times
+If only the Year or YearMonth for a file is known and in the filename, this command will default to 01 month and 01 day, as well as 00:00:00 for the time when copying time stamp from teh filename.  
+https://exiftool.org/forum/index.php?msg=76082
+
+## Exiftool JSON output, numerics strings output as numbers
+Example, if the `ExifToolVersion` has a trailing zero, it is output as numeric and the trailing zero may dropped by programs that treat it as a numeric value. This can be changed by setting the [`-api StructFormat` option](https://exiftool.org/ExifTool.html#StructFormat) to `JSONQ`
+
+```
+$ exiftool -J -ExifToolVersion test.heic
+[{
+  "SourceFile": "test.heic",
+  "ExifToolVersion": 12.60
+}]
+```
+https://github.com/exiftool/exiftool/issues/262  
+
+## Metadata: PNG chunk name capitalization rules
+https://exiftool.org/forum/index.php?msg=89213
+
+## Forum Help: How to inline attached images
+https://exiftool.org/forum/index.php?msg=87315  
+
+## Exiftool cannot write XMP qualifiers
+https://exiftool.org/forum/index.php?msg=62262
+https://exiftool.org/forum/index.php?msg=82245
+
+## Setting notifications on the forum
+https://exiftool.org/forum/index.php?msg=87615
 
 ## "Lost" ebv4linux interview with Phil
 In German, can be translated with web browser translation abilities
@@ -62,15 +114,10 @@ https://exiftool.org/forum/index.php?msg=49360
 ## Appending a CSV file
 https://exiftool.org/forum/index.php?msg=76086
 
-## Apple doesn't understand metadata links
+## Apple doesn't understand metadata
 Links showing times when Apple incorrectly deals with metadata
 To do, dig up links on this
-Wildly inaccurate date/time in Apple Photos with date/time Time stamps missing time zone
-https://exiftool.org/forum/index.php?msg=56769
-with images
-https://exiftool.org/forum/index.php?msg=64363
-
-## Apple Photos Quicktime Timezone error
+### Apple Photos Quicktime Timezone error
 Wildly inaccurate date/time in Apple Photos with date/time Time stamps missing time zone
 https://exiftool.org/forum/index.php?msg=56769
 with images
@@ -83,6 +130,12 @@ https://exiftool.org/forum/index.php?msg=64673
 ## Changing extension to Title Case
 This will upper case the first letter, then lower case the rest
 `-Filename=%f.%1ue%.1le`
+
+This can also be done with RegEx.  
+`${Filename;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/}`
+
+The first option would probably be slightly faster, but if you were doing other edits to the filename extension, then the RegEx would be necessary. For example, I prefer to have a extension of `.Jpg` over `.Jpeg`. My resulting command would be  
+`${Filename;s/(?<=\.)jpeg($)/jpg/i;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/;`
 
 ## Converting a local time to UTC
 Needs expansion and updated with the standard exiftool routines
@@ -200,7 +253,7 @@ https://exiftool.org/forum/index.php?msg=72535
 
 My standard copy/paste when it comes to EXIF/GPS data in a video
 \[hr\]
-The problem is that there really isn't a standard for embedding a GPS track in a video\* Currently, exiftool reads \*\*74 different ways\*\* that a GPS track can be in a video and there are about half a dozen more in which the format hasn't been decoded. I have yet to find a program that will embed a GPS track into a video file.
+The problem is that there really isn't a standard for embedding a GPS track in a video\* Currently, exiftool reads \*\*77 different ways\*\* that a GPS track can be in a video and there are about half a dozen more in which the format hasn't been decoded. I have yet to find a program that will embed a GPS track into a video file.
 
 And that won't be the only data you will lose when recompressing a video. The same situation exists with the EXIF data that is written into the video. Most video data is \[url=https://exiftool.org/TagNames/QuickTime.html\]Quicktime data\[/url\] and EXIF data in a video file is non-standard. But camera companies shove it in there anyway, with each company doing it in different ways.
 
@@ -278,7 +331,7 @@ https://exiftool.org/forum/index.php?msg=76017
 
 ## List type tags: What are List Type tags?
 
-List type tags are tags which are saved in the file as individual separate entries.  While many programs will display them as comma/semi-colon separated, they are not.  Each entry is completely self contained and separate from the others.  An example of this can be easily seen by looking at the raw data in the file.  Here's what it looks like in  the `XMP-dc:Subject`  tag
+List type tags are tags which are saved in the file as individual separate entries.  While many programs will display them as comma/semicolon separated, they are not.  Each entry is completely self contained and separate from the others.  An example of this can be easily seen by looking at the raw data in the file.  Here's what it looks like in  the `XMP-dc:Subject`  tag
 
 ```
 <dc:subject>
@@ -378,7 +431,7 @@ https://media.ebird.org/catalog?userId=USER1671030&mediaType=photo
 https://exiftool.org/icat/
 
 ## Phil's script to replace jpeg image without changing metadata
-Phil uses this to remove images from the [ExifTool Meta Information Repository](https://exiftool.org/sample_images.html)
+Phil uses this `swap_image` script to remove images from the [ExifTool Meta Information Repository](https://exiftool.org/sample_images.html)
 https://exiftool.org/forum/index.php?msg=8031
 
 ## Phil's `extract_preview` script
@@ -412,9 +465,12 @@ https://exiftool.org/forum/index.php?msg=80581
 ## Quicktime delete date/time timestamps
 https://exiftool.org/forum/index.php?msg=54897
 
-## Regarding APP14 Adobe
+## ## Example color changes when removing ICC_Profile and Adobe APP14
 The JPEG APP14 Adobe segment contains some color information that may severely affect the image appearance if deleted.
 https://exiftool.org/forum/index.php?msg=32114
+
+Removing the ICC_Profile will change the colors, but the result will be a more subtle change
+https://exiftool.org/forum/index.php?msg=68249
 
 ## Renaming files and XMP sidecars
 https://exiftool.org/forum/index.php?msg=6201
@@ -478,7 +534,7 @@ it is very unlikely that you would have any digital files created before this ti
 Same problem with the addition of Quicktime time stamps and `-api QuickTimeUTC`
 https://exiftool.org/forum/index.php?msg=82437
 
-### Fixed formatted tags
+## Fixed formatted tags
 An incomplete list of tags that would require overriding in order to write non-standard data. See this post
 https://exiftool.org/forum/index.php?msg=76643
 - `XMP-exif:GPSLatitude`
@@ -514,14 +570,14 @@ On Windows, if you have [Everything Search](https://www.voidtools.com/), you can
 ## Using `Geolocate`
 The `-geolocate=geotag` feature is used if you are geotagging from a GPS track log. If the file already contains GPS, probably you should use `"-geolocate<gpsposition"`
 
-## Using `Userparam` on the command line to fill multiple tags
+## Write to multiple tags at the same time using using the `Userparam` option
 You can use the `UserParam` api option to fill a variable and then use that variable to fill other tags.  This can help avoid mistyping.
 
 `exiftool -userparam myvar="New Title" "-title<$myvar" "-comment<$myvar" a.jpg`
 
 https://exiftool.org/forum/index.php?msg=45237
 
-### iPhone 14 DNG writes XMP in non-standard place
+## iPhone 14 DNG writes XMP in non-standard place
 https://exiftool.org/forum/index.php?msg=76645
 
 ## Using a shortcut to rename with multiple tags, while not throwing an error for missing ones
@@ -575,3 +631,15 @@ https://exiftool.org/forum/index.php?msg=75792
 ## XMP data maximum size
 https://exiftool.org/forum/index.php?msg=48877
 
+## Google GPS precision in videos
+Google Photos will not read GPS Latitude/Longitude with a precision of more than five decimals and an Altitude of more than four decimals.  
+ https://exiftool.org/forum/index.php?msg=87423
+
+## Writing GPS track files without redirection
+Commands to write GPS tracks using the [`-w` (`-TextOut`) option](https://exiftool.org/exiftool_pod.html#w-EXT-or-FMT--textOut)/[`-W` (`-TagOut`) option](https://exiftool.org/exiftool_pod.html#W-FMT--tagOut) instead of command line redirection
+https://exiftool.org/forum/index.php?msg=78826
+
+# 2 Threads needing further evaluation
+
+## Problem writing `FileCreateDate` when also writing video time stamps (Windows only?)
+https://exiftool.org/forum/index.php?msg=71755

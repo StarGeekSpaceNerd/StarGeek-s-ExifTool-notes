@@ -19,6 +19,8 @@ https://exiftool.org/forum/index.php?msg=69788f
 
 # 2 Warning
 Needs definition and how it compares to other warnings
+## Bad length ICC_Profile  
+to do
 ## Bad offset for <TAG>
 This is usually in regards to EXIF (maybe IPTC) tags. It means that some program has incorrectly written the EXIF block.
 
@@ -27,8 +29,6 @@ A targeted, possible fix (I haven't tested it, no samples) would be to remove th
 
 A more shotgun approach is detailed in [FAQ #20](https://exiftool.org/faq.html#Q20). **WARNING:** Never used the command listed in FAQ #20 on RAW file types such as NEF, CR2, ARW, etc.
 
-## Bad length ICC_Profile  
-to do
 ## Duplicate <TAG> tag in <GROUP>
 This means that some program has incorrectly written a multiple copies of TAG. The first thing to do is check to see if the tags are different and if they are, decide which is correct  
 `exiftool -G1 -a -s -TAG file.jpg`  
@@ -71,14 +71,17 @@ https://exiftool.org/forum/index.php?msg=75864
 ## No writable tags set from ?
 This means exactly what it says. You are attempting to copy tags that do not exist in the source file. Use the command in [FAQ #3](https://exiftool.org/faq.html#Q3) to see what tags are actually available.
 
-## Wrong IFD for
+## Warning: Unknown file type
 to do
 
-## Warning: Unknown file type
+## Wrong IFD for
 to do
 
 # 3 Error
 Needs definition and how it compares to other warnings
+## Bad format (###) for (ExifIFD|IFD0|IFD1) entry ###
+This indcates a corrupted EXIF block and at least one, if not more, EXIF tags have been lost. The command in [FAQ #20](https://exiftool.org/faq.html#Q20) may help repair the file but make sure you have a backup and do **not** use the command on RAW file types.
+
 ## Bad Photoshop IRB resource
 
 may also be a warning
@@ -90,9 +93,6 @@ This usually means you have a quoting problem or are forgetting the leading hyph
 Example, this indicates that `Description` did not have a leadiing hyphen    
 `Error: File not found Description`
 
-## Bad format (###) for (ExifIFD|IFD0|IFD1) entry ###
-This indcates a corrupted EXIF block and at least one, if not more, EXIF tags have been lost. The command in [FAQ #20](https://exiftool.org/faq.html#Q20) may help repair the file but make sure you have a backup and do **not** use the command on RAW file types.
-
 # 4 To do
 Warnings that may need to be added
 `Warning                         : [minor] Invalid CanonCameraSettings data
@@ -101,4 +101,3 @@ Warning                         : [minor] Invalid CanonAFInfo data
 Warning                         : [minor] Non-standard ExifIFD tag 0xea1c Padding
 Warning                         : [minor] Non-standard ExifIFD tag 0xea1d OffsetSchema
 Warning                         : [minor] Non-standard IFD0 tag 0xea1c Padding
-Validate                        : 6 Warnings (all minor)`

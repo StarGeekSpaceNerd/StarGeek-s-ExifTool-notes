@@ -1,3 +1,5 @@
+work in progress, ignore this for now
+
 Run this command
 `exiftool -ver -v`
 Look for the line that list the verion of Perl that exiftool is using.

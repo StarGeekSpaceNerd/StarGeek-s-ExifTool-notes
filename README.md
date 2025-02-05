@@ -1,4 +1,3 @@
-# StarGeek's ExifTool notes
 This is simply my collection of notes and links about ExifTool. It is unorganized and messy, but open to suggestions on how to clean it up and make it more readable. It's also my attempt to learn more about Git(hub) and Markdown in general.
 
 Originally, these notes were held in the Evernote app. When Evernote started limiting the number of devices it could be used on and other changes, these notes were moved to [Joplin](https://joplinapp.org/), which is a decent enough app, but its search function isn't up to the task and it makes some spacing edits in the background that I didn't care for. I'm now migrating these notes to [Zettlr](https://www.zettlr.com/), as it seems to have better search ability and I don't really need these notes on my phone/tablet because I'm usually on the desktop when dealing with exiftool.

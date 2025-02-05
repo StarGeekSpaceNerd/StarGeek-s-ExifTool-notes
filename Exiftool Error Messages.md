@@ -33,13 +33,13 @@ A more shotgun approach is detailed in [FAQ #20](https://exiftool.org/faq.html#Q
 This means that some program has incorrectly written a multiple copies of TAG. The first thing to do is check to see if the tags are different and if they are, decide which is correct  
 `exiftool -G1 -a -s -TAG file.jpg`  
 
-Sometimes, the extra tags are written in the wrong group, expecially if they are EXIF tags. In these cases, you may have to expecitkly delete the extra tags by including the group they are in. For example, if there was an `Orientation` tag in `IFD1` (it normally appears in `IFD0`) , you would have 
-
+Sometimes, the extra tags are written in the wrong group, expecially if they are EXIF tags. In these cases, you may have to explicitly delete the extra tags by including the group they are in. For example, if there was an `Orientation` tag in `IFD1` (it normally appears in `IFD0`) , you would have 
 
 ## Error converting date/time for
 to do
+
 ## Fixed incorrect URI for xmlns:MicrosoftPhoto
-At some point, Microsoft changed how they wrote the URI in Microsoft XMP tags, which is something they shouldn't have done. The difference is simply a extra slash.  I believe it originally was
+At some point, Microsoft changed how they wrote the URI in Microsoft XMP tags, which is something they shouldn't have done. The difference is simply an extra slash.  I believe it originally was
 `xmlns:MicrosoftPhoto='http://ns.microsoft.com/photo/1.0/'`
 and then Microsoft changed it to
 `xmlns:MicrosoftPhoto='http://ns.microsoft.com/photo/1.0'`

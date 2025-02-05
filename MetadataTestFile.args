@@ -130,9 +130,6 @@
 -PNG:ModDate=2008:09:11 09:42:20
 -PNG:ModifyDate=2009:09:28 12:16:49
 # Misc random times for future time tags
-#2010:05:22 19:58:28
-#2010:09:02 06:10:21
-#2010:12:13 19:44:01
 #2011:12:18 11:10:21
 #2013:03:28 09:34:42
 #2016:03:16 05:41:01
@@ -253,6 +250,10 @@
 # them and need to be checked against this file to 
 # figure out the tag.
 ################
+-QuickTime:Rotation=270
+-PNG:PixelsPerUnitX=9
+-PNG:PixelsPerUnitY=45
+-PNG:PixelUnits=meters
 -Photoshop:GlobalAltitude=23
 -Photoshop:GlobalAngle=74
 -Photoshop:IPTCDigest=new

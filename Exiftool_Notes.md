@@ -1,9 +1,106 @@
 StarGeek's exiftool notes  
 ===  
-These are my unsorted notes and links to various use exiftool posts.  
+These are my unsorted notes and links to various use exiftool posts. Any suggestions on formatting/grouping these is welcome.  
 
-# 1 Unsorted notes  
+# 1 Working with the ExifTool forums  
 
+## How to add images to a post  
+To inline an image, you would use the BBCode `[img]`/`[/img]` tags and place a link to the image in between  
+Example:  
+`[img]https://i.imgur.com/V2yCBli.png[/img]`  
+If you are using Imgur, make sure you use the "Direct Link" URL, not the "Image Link" url.  
+
+To Upload your own image, see this post  
+https://exiftool.org/forum/index.php?msg=87312  
+
+If the image is very wide/tall, then you can modify how the image is displayed like this to reduce the width  
+`[img width=300]https://i.imgur.com/V2yCBli.png[/img]`  
+or the height  
+`[img height=300]https://i.imgur.com/V2yCBli.png[/img]`  
+The image itself is unaffected and one posted, can be viewed in the original size by clicking on it.  
+
+# 2 Metadata  
+## ACDSee regions and sample image  
+Sample image with ACDSee regions  
+https://exiftool.org/forum/index.php?msg=57132  
+
+## Apple doesn't understand metadata  
+Links showing times when Apple incorrectly deals with metadata  
+To do, dig up links on this  
+
+### Apple Photo creates non-standard GPS reference tags in XMP  
+Find links  
+
+### Apple Photos Quicktime Timezone error  
+Wildly inaccurate date/time in Apple Photos with date/time Time stamps missing time zone  
+https://exiftool.org/forum/index.php?msg=56769  
+with images  
+https://exiftool.org/forum/index.php?msg=64363  
+
+## Copy of the Metadata Working Group  _Guidelines for Handling Image Metadata_  
+A copy of the Metadata Working Group PDF  
+https://exiftool.org/forum/index.php?msg=53039  
+Additionally, via Archive.org  
+https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf  
+
+## Family History Metadata Working Group (FHMWG)  
+A standard for dealing with family history. For the most part, it copies other standards such as the MWG and IPTC standards  
+Main page  
+https://github.com/fhmwg/current-tags  
+Tag definitions  
+https://github.com/fhmwg/current-tags/blob/stage2-essentials/stage2-essentials-overview.md  
+
+## JPEG Snoop page with visuals on EXIF orientation  
+Oritinal page was taken down, link via Archive.org  
+https://web.archive.org/web/20180819022932/https://www.impulseadventure.com/photo/exif-orientation.html  
+
+## Maker note tags documentation  
+> Maker note tags are reverse engineered by camera owners since there is no official documentation available (with rare exceptions).  
+
+https://exiftool.org/forum/index.php?msg=78692  
+
+## Opinion on Dashcam manufacturers obfuscating the embedded data such as GPS tracks  
+https://exiftool.org/forum/index.php?msg=76061  
+
+## PNG chunk name capitalization rules  
+https://exiftool.org/forum/index.php?msg=89213  
+
+## XMP data maximum size  
+https://exiftool.org/forum/index.php?msg=48877  
+
+# 3 Best Practices  
+Things that in my opinion, are the best way for dealing with metadata. Might separate this into a new file and use the full contents instead of just linking to forum posts.  
+
+## Keep it (tag names) simple  
+https://exiftool.org/forum/index.php?msg=80202  
+
+# 4 External  
+## Does the MWG (Metadata Working Group) still exist  
+Answer, probably not anymore  
+Still exists 2019  
+https://exiftool.org/forum/index.php?msg=52224  
+Still no change 2020  
+https://exiftool.org/forum/index.php?msg=58151  
+
+## Flickr uses Exiftool  
+https://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/  
+
+## Phil's EBird page  
+https://exiftool.org/forum/index.php?msg=59975  
+https://media.ebird.org/catalog?userId=USER1671030&mediaType=photo  
+
+## Phil's ICAT Image Cataloging Tool  
+https://exiftool.org/icat/  
+
+# 5 Historical
+## "Lost" ebv4linux interview with Phil  
+In German, can be translated with web browser translation abilities  
+https://web.archive.org/web/20150419003745/http://www.ebv4linux.de/modules.php?name=News&file=article&sid=26  
+
+## Tom Christiansen (co-author of "Programming Perl") and dealing with UTF-8  
+https://exiftool.org/forum/index.php?msg=7642  
+
+# 6 Unsorted notes  
 ## A discussion on deleting metadata  
 https://exiftool.org/forum/index.php?msg=76627  
 
@@ -14,10 +111,6 @@ https://exiftool.org/forum/index.php?msg=34104
 For example, to remove Make from within the Model tag  
 `exiftool "-title<${Model;s/\\\\s\\\*$$self{VALUE}{Make}\\\\s\\\*//i}" -m`  
 This uses ExifTool internals feature to access the Make tag from within the advanced formatting expression for Model.  But a disadvantage of doing it this way is that you will get a warning due to an uninitialized value in this expression if Make doesn't exist, hence the -m option. The tag is case sensitive.  
-
-## ACDSee regions and sample image  
-Sample image with ACDSee regions  
-https://exiftool.org/forum/index.php?msg=57132  
 
 ## Add tag to all files that have matching file in different folder  
 Example, for every jpg in `/path/to/published/2015/`, exiftool will check in `/path/to/library/` for a file with the same name and add "2015" to the `Subject` tag in the matching file  
@@ -35,33 +128,19 @@ https://exiftool.org/forum/index.php?msg=49360
 ## Appending a CSV file  
 https://exiftool.org/forum/index.php?msg=76086  
 
-## Apple doesn't understand metadata  
-Links showing times when Apple incorrectly deals with metadata  
-To do, dig up links on this  
-
-### Apple Photo creates non-standard GPS reference tags in XMP  
-Find links
-
-### Apple Photos Quicktime Timezone error  
-Wildly inaccurate date/time in Apple Photos with date/time Time stamps missing time zone  
-https://exiftool.org/forum/index.php?msg=56769  
-with images  
-https://exiftool.org/forum/index.php?msg=64363  
-
-## AVIDemux settings to remove all metadata  
-AVIDemux doesn't copy any metadata, so it can be used to remove all the metadata, even those that exiftool can't remove such as a GPS track or EXIF data  
-https://exiftool.org/forum/index.php?msg=64673  
-
 ## Changing extension to Title Case  
 This will upper case the first letter, then lower case the rest  
 `-Filename=%f.%1ue%.1le`  
 This can also be done with RegEx.  
 `${Filename;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/}`  
-The first option would probably be slightly faster, but if you were doing other edits to the filename extension, then the RegEx would be necessary. For example, I prefer to have a extension of `.Jpg` over `.Jpeg`. My resulting command would be  
-`${Filename;s/(?<=\.)jpeg($)/jpg/i;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/;`  
+The first option would probably be slightly faster, but if you were doing other edits to the filename extension, then the RegEx would be necessary. For example, I prefer to have a extension of `.Jpg` over `.Jpeg`. This command will change `.jpeg` into `.jpeg`  
+`exiftool "-Filename<${Filename;s/(?<=\.)jpeg$/jpg/i;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/;} /path/to/files/`  
+
+## config files and user-defined tags  
+See the [[User defined tags index]]  
 
 ## Converting a local time to UTC  
-Needs expansion and updated with the standard exiftool routines  
+Needs expansion and rewrite with the standard exiftool routines  
 Requires that the `OffsetTime*` tag is set  
 `${SubSecDateTimeOriginal#;use POSIX qw(strftime);DateFmt('%s');$_=strftime('%Y-%m-%d_%H-%M-%S',gmtime($_))}`  
 https://exiftool.org/forum/index.php?msg=79228  
@@ -69,12 +148,6 @@ https://exiftool.org/forum/index.php?msg=79228
 ## Copy metadata from one file to another with completely different names using hardlinks to sync them  
 A multistep operation to copy tags from one directory to another where the files have all been renamed and cannot be linked by editing the name, but can be linked by a tag, in this case `Duration`. This procedure creates hard links with names based upon `Duration` and allows copying the data based upon that.  
 https://exiftool.org/forum/index.php?msg=68166  
-
-## Copy of the Metadata Working Group  
-A copy of the Metadata Working Group PDF  
-https://exiftool.org/forum/index.php?msg=53039  
-Additionally, via Archive.org  
-https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf  
 
 ## Copy time stamps from source video to new video  
 `exiftool -TagsFromFile source.mp4 "-all:all<time:all" target.mp4`  
@@ -106,13 +179,6 @@ https://exiftool.org/forum/index.php?msg=75031
 ## DirOpus rename button example  
 https://exiftool.org/forum/index.php?msg=6243  
 
-## Does the MWG (Metadata Working Group) still exist  
-Answer, probably not anymore  
-Still exists 2019  
-https://exiftool.org/forum/index.php?msg=52224  
-Still no change 2020  
-https://exiftool.org/forum/index.php?msg=58151  
-
 ## Don't use PDF:Keywords with commas  
 https://exiftool.org/forum/index.php?msg=80503  
 
@@ -123,11 +189,11 @@ Removing the ICC_Profile will change the colors, but the result will be a more s
 https://exiftool.org/forum/index.php?msg=68249  
 
 ## EXIF in MOV/MP4 files is non-standard  
-EXIF data is non-standard in files and will be lost if the file is edited. The best workaround would be to use the [`exif2xmp.args` file](https://github.com/exiftool/exiftool/blob/master/arg_files/exif2xmp.args) to copy the data to the corrisponding tags in XMP  
+EXIF data is non-standard in files and will be lost if the file is edited. The best workaround would be to use the [`exif2xmp.args` file](https://github.com/exiftool/exiftool/blob/master/arg_files/exif2xmp.args) to copy the data to the corresponding tags in XMP  
 https://exiftool.org/forum/index.php?msg=56282  
 
 ## Exiftool calculates `Duration` Incorrectly  
-Exiftool calculates the `Duration` based upon the header metadata and doesn't analyze the stream itself.  If the header has incorrect data, then the value could be off.  
+Exiftool calculates the `Duration` based upon the header metadata and doesn't analyze the stream itself.  If the header has incorrect data, then the value could be off. To get the exact duration requires the use of a video specific program like `ffmpeg`/`ffprobe`.  
 https://github.com/exiftool/exiftool/issues/160#issuecomment-1293946184  
 
 ## Exiftool cannot write XMP qualifiers  
@@ -165,17 +231,24 @@ https://exiftool.org/exiftool_pod.html#exiftool--a--b--ee--embeddedimage--W-Imag
 Example:  
 `exiftool -ee -embeddedimage -b -W %t%c.%s some.pdf`  
 
+## Extracted FLIR thermal images are strange  
+From the docs on [FLIR RawData tags](https://exiftool.org/TagNames/FLIR.html#RawData)  
+> Note that most FLIR cameras using the PNG format seem to write the 16-bit raw image data in the wrong byte order.  
+
+This is what an extracted image looks like when the image data is in the wrong byte order  
+![1-FLIR_RawThermalImage_Incorrect_Byte_Order.png](Images\1-FLIR_RawThermalImage_Incorrect_Byte_Order.png)  
+The corrected image looks like this  
+![2-FLIR_RawThermalImage_Corrected_Byte_Order.png](Images\2-FLIR_RawThermalImage_Corrected_Byte_Order.png)  
+
+https://exiftool.org/forum/index.php?msg=91196  
+https://exiftool.org/forum/index.php?msg=24992  
+https://exiftool.org/forum/index.php?msg=72222  
+Thanks to @thurston on the exiftool forum for the images  
+
 ## Extracting GPS data from MP4 video  
 Original megathread  
 https://exiftool.org/forum/index.php?msg=45447  
 Otherwise now documented under [Inverse Geotagging](https://exiftool.org/geotag.html#Inverse)  
-
-## Family History Metadata Working Group (FHMWG)  
-A standard for dealing with family history. For the most part, it copies other standards such as the MWG and IPTC standards  
-Main page  
-https://github.com/fhmwg/current-tags  
-Tag definitions  
-https://github.com/fhmwg/current-tags/blob/stage2-essentials/stage2-essentials-overview.md  
 
 ## Find all images within X distance of GPS Coordinates  
 https://exiftool.org/forum/index.php?msg=59031  
@@ -185,12 +258,6 @@ An incomplete list of tags that would require overriding in order to write non-s
 https://exiftool.org/forum/index.php?msg=76643  
 - `XMP-exif:GPSLatitude`  
 - `XMP-exif:GPSLongitude`  
-
-## Flickr uses Exiftool  
-https://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/  
-
-## Forum Help: How to inline attached images  
-https://exiftool.org/forum/index.php?msg=87315  
 
 ## garbage at end of string in strptime  
 Not useful? Delete?  
@@ -224,14 +291,6 @@ The best you can do is extract the GPS data into a GPX track and copy the EXIF d
 ## GPS reference directions  
 Contains GIF of how to copy/paste GPS coordinates in a spreadsheet in order to create the Ref direction tags as well  
 https://exiftool.org/forum/index.php?msg=73550  
-
-## Historical, Parse H264 stream  
-Edit the source code to activate steam parsing  
-This is no longer needed. Using `-ee2` or higher activates it.  
-https://exiftool.org/forum/index.php?msg=65183  
-
-## Historical: Tom Christiansen (co-author of "Programming Perl") and dealing with UTF-8  
-https://exiftool.org/forum/index.php?msg=7642  
 
 ## How to get first letter each word in a Tag (skips apostrophe)  
 Very old, Double check this.  
@@ -270,16 +329,9 @@ One exiftool user's cheat sheet
 Some of these can be simplified or updated  
 https://github.com/jonkeren/Exiftool-Commands  
 
-## JPEG Snoop page with visuals on EXIF orientation  
-Oritinal page was taken down, link via Archive.org  
-https://web.archive.org/web/20180819022932/https://www.impulseadventure.com/photo/exif-orientation.html  
-
 ## JSON output and numbers  
 > The values output by exiftool are not typed, which leads to problems when converting for the JSON output. If it looks like a number, then ExifTool writes a JSON number, otherwise it quotes it as a string.  
 https://exiftool.org/forum/index.php?msg=37780  
-
-## Keep it (tag names) simple  
-https://exiftool.org/forum/index.php?msg=80202  
 
 ## Keeping alt-lang tags when updating  
 https://exiftool.org/forum/index.php?msg=60655  
@@ -299,22 +351,11 @@ List type tags are tags which are saved in the file as individual separate entri
 </dc:subject>  
 ```  
 Bridge example:  
-![Bridge-2023-01-15_09.35.14.png](Bridge-2023-01-15_09.35.14.png)  
+![Bridge-2023-01-15_09.35.14.png](Images\Bridge-2023-01-15_09.35.14.png)  
 
 ## Looking at the details of a file  
 Examples of `-v` and `-htmldump` options  
 https://exiftool.org/forum/index.php?msg=74866  
-
-## "Lost" ebv4linux interview with Phil  
-In German, can be translated with web browser translation abilities  
-https://web.archive.org/web/20150419003745/http://www.ebv4linux.de/modules.php?name=News&file=article&sid=26  
-
-## Maker note tags documentation  
-> Maker note tags are reverse engineered by camera owners since there is no official documentation available (with rare exceptions).  
-https://exiftool.org/forum/index.php?msg=78692  
-
-## Metadata: PNG chunk name capitalization rules  
-https://exiftool.org/forum/index.php?msg=89213  
 
 ## My escape html entities AutoIt3 script  
 https://exiftool.org/forum/index.php?msg=67755  
@@ -330,9 +371,6 @@ Copy/paste for details on leading numbers for groups
 \[quote author=Archive link=msg=7187 date=1273668838\]The leading family number is almost never used.  The only reason it is  
 needed is to distinguish between the rare cases where a group has the same name but represents a different set of tags in family 0 and 1.  This only happens in the case where there are multiple IPTC records in a single file (which only happens when some proprietary information contiaining IPTC has been written to the file).  In this rare case, the family 0 group names of both IPTC records are "IPTC", while the family 1 group names are "IPTC" and "IPTC2".\[/quote\]  
 https://exiftool.org/forum/index.php?msg=7187  
-
-## Opinion on Dashcam manufacturers obfuscating the embedded data such as GPS tracks  
-https://exiftool.org/forum/index.php?msg=76061  
 
 ## Order in which file types are checked  
 From 2022-10-25, may be outdated  
@@ -379,13 +417,6 @@ https://exiftool.org/forum/index.php?msg=18798
 ## Phil's brute force image extraction script  
 https://exiftool.org/forum/index.php?msg=19805  
 
-## Phil's EBird page  
-https://exiftool.org/forum/index.php?msg=59975  
-https://media.ebird.org/catalog?userId=USER1671030&mediaType=photo  
-
-## Phil's ICAT Image Cataloging Tool  
-https://exiftool.org/icat/  
-
 ## Phil's script to replace jpeg image without changing metadata  
 Phil uses this `swap_image` script to remove images from the [ExifTool Meta Information Repository](https://exiftool.org/sample_images.html)  
 https://exiftool.org/forum/index.php?msg=8031  
@@ -411,11 +442,30 @@ https://exiftool.org/forum/index.php?msg=22903
 My post on the subject  
 https://exiftool.org/forum/index.php?msg=41663  
 
+## PowerShell requires decimal values to be quoted  
+No link ATM, but if a decimal value isn't quoted, then it is separated at the decimal point and the rest is treated as if it were a separate parameter. The PS highlighting indicates the separation.  
+Example:  
+`PS C:\> exiftool -P -overwrite_original -Description=9.9 y:\!temp\Test4.jpg  
+Error: File not found - .9  
+    1 image files updated  
+    1 files weren't updated due to errors  
+PS C:\> exiftool -G1 -a -s -Description y:\!temp\Test4.jpg  
+[XMP-dc]        Description                     : 9`  
+
 ## PowerShell sucks at quoting  
 https://exiftool.org/forum/index.php?msg=80581  
 
 ## Quicktime delete date/time timestamps  
 https://exiftool.org/forum/index.php?msg=54897  
+
+## Remove all metadata from a video  
+There is some metadata in video files that exiftool can't remove, usually non-standard additions to the file. Examples of this are GPS tracks and EXIF data. Because there isn't a standard for this type of metadata in a video, every company writes the data in different ways, sometimes differing between camera models (add link to Go Pro example here).  
+
+The program [AVIDemux](https://avidemux.sourceforge.net/) is a [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) program that doesn't copy any metadata, so it can be used to remove all the metadata from a video file. Despite its name, it can edit MP4, MOV, and MKV files. This forum posts shows the settings I use to remove metadata in a lossless manner.  
+https://exiftool.org/forum/index.php?msg=64673  
+
+`ffmpeg` can also be used losslessly remove metadata. This is the command I use.  
+`ffmpeg -hide_banner -i input.mp4 -c copy -map 0 -map_metadata -1 output.mp4`  
 
 ## Renaming files and XMP sidecars  
 https://exiftool.org/forum/index.php?msg=6201  
@@ -436,7 +486,7 @@ Example use of using different default [Options](https://exiftool.org/ExifTool.h
 https://exiftool.org/forum/index.php?msg=79956  
 
 ## Setting `AllDates` from filenames that have incomplete date/times  
-If only the Year or YearMonth for a file is known and in the filename, this command will default to 01 month and 01 day, as well as 00:00:00 for the time when copying time stamp from teh filename.  
+If only the Year or YearMonth for a file is known and in the filename, this command will default to 01 month and 01 day, as well as 00:00:00 for the time when copying time stamp from the filename.  
 https://exiftool.org/forum/index.php?msg=76082  
 
 ## Setting notifications on the forum  
@@ -570,11 +620,6 @@ https://exiftool.org/forum/index.php?msg=54897
 ## When extracting a GPS track from a video, the resulting file repeatedly displays `gpx.fmt`.  
 https://exiftool.org/forum/index.php?msg=78475  
 
-## Why `LargeFileSupport` isn't on by default  
-https://exiftool.org/forum/index.php?msg=64263  
-To be changed in 12.88  
-https://exiftool.org/forum/index.php?msg=86920  
-
 ## Why exiftool doesn't write GeoTiff tags  
 https://exiftool.org/forum/index.php?msg=12451  
 
@@ -590,10 +635,19 @@ https://exiftool.org/forum/index.php?msg=45237
 Commands to write GPS tracks using the [`-w` (`-TextOut`) option](https://exiftool.org/exiftool_pod.html#w-EXT-or-FMT--textOut)/[`-W` (`-TagOut`) option](https://exiftool.org/exiftool_pod.html#W-FMT--tagOut) instead of command line redirection  
 https://exiftool.org/forum/index.php?msg=78826  
 
-## XMP data maximum size  
-https://exiftool.org/forum/index.php?msg=48877  
+# 7 Depricated  
 
-# 2 Threads needing further evaluation  
+## Parse H264 stream  
+Edit the source code to activate steam parsing  
+This is no longer needed. Using `-ee2` or higher activates it.  
+https://exiftool.org/forum/index.php?msg=65183  
+
+## Why `LargeFileSupport` isn't on by default  
+https://exiftool.org/forum/index.php?msg=64263  
+To be changed in 12.88  
+https://exiftool.org/forum/index.php?msg=86920  
+
+# 8 Threads needing further evaluation  
 
 ## Problem writing `FileCreateDate` when also writing video time stamps (Windows only?)  
 https://exiftool.org/forum/index.php?msg=71755  

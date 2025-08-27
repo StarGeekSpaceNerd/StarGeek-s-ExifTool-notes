@@ -4,7 +4,7 @@ User defined tags index
 # 1 External User defined tags  
 These are user defined tags that must be called using the [`-Config` option](https://exiftool.org/exiftool_pod.html#config-CFGFILE) or by merging them into the `.ExifTool_config` file.  
 There are several extremely specific user defined tags in the forums, such as [this config](https://exiftool.org/forum/index.php?msg=75641), that have not been included here. These are usually not useful to anyone outside the person using them, though they can be useful as example code. They can be found by searching the forums for `"ExifTool::UserDefined"`.  
-
+  
 ## Android `XMP:FStop`  
   
 ### 1 Description  
@@ -16,56 +16,56 @@ The Android app "F-Stop" uses a "heart" icon that maps to a custom xmp tag.
 ### 3 Source  
 https://exiftool.org/forum/index.php?msg=85484  
   
-## Anzu Raptor RTK drone `XMP-drone` tags
-### 1 Description
+## Anzu Raptor RTK drone `XMP-drone` tags  
+### 1 Description  
 The Anzu Raptor RTK drone (a licensed USA-built copy of the DJI Mavic 3 Enterprise), writes XMP tags to the XMP-drone namespace  
 ### 2 Tags created  
-`XMP-drone:AbsoluteAltitude`
-`XMP-drone:AltitudeType`
-`XMP-drone:CalibratedFocalLength`
-`XMP-drone:CalibratedOpticalCenterX`
-`XMP-drone:CalibratedOpticalCenterY`
-`XMP-drone:CameraSerialNumber`
-`XMP-drone:CamReverse`
-`XMP-drone:DroneModel`
-`XMP-drone:DroneSerialNumber`
-`XMP-drone:FlightPitchDegree`
-`XMP-drone:FlightRollDegree`
-`XMP-drone:FlightXSpeed`
-`XMP-drone:FlightYawDegree`
-`XMP-drone:FlightYSpeed`
-`XMP-drone:FlightZSpeed`
-`XMP-drone:FocusDistance`
-`XMP-drone:GimbalPitchDegree`
-`XMP-drone:GimbalReverse`
-`XMP-drone:GimbalRollDegree`
-`XMP-drone:GimbalYawDegree`
-`XMP-drone:GpsLatitude`
-`XMP-drone:GpsLongitude`
-`XMP-drone:GpsStatus`
-`XMP-drone:LRFStatus`
-`XMP-drone:LRFTargetAbsAlt`
-`XMP-drone:LRFTargetAlt`
-`XMP-drone:LRFTargetDistance`
-`XMP-drone:LRFTargetLat`
-`XMP-drone:LRFTargetLon`
-`XMP-drone:PictureQuality`
-`XMP-drone:RelativeAltitude`
-`XMP-drone:RtkDiffAge`
-`XMP-drone:RtkFlag`
-`XMP-drone:RtkStdHgt`
-`XMP-drone:RtkStdLat`
-`XMP-drone:RtkStdLon`
-`XMP-drone:SelfData`
-`XMP-drone:ShutterCount`
-`XMP-drone:ShutterType`
-`XMP-drone:SurveyingMode`
-`XMP-drone:UTCAtExposure`
-### 3 Source
-https://exiftool.org/forum/index.php?msg=93096
-### 4 Notes
+`XMP-drone:AbsoluteAltitude`  
+`XMP-drone:AltitudeType`  
+`XMP-drone:CalibratedFocalLength`  
+`XMP-drone:CalibratedOpticalCenterX`  
+`XMP-drone:CalibratedOpticalCenterY`  
+`XMP-drone:CameraSerialNumber`  
+`XMP-drone:CamReverse`  
+`XMP-drone:DroneModel`  
+`XMP-drone:DroneSerialNumber`  
+`XMP-drone:FlightPitchDegree`  
+`XMP-drone:FlightRollDegree`  
+`XMP-drone:FlightXSpeed`  
+`XMP-drone:FlightYawDegree`  
+`XMP-drone:FlightYSpeed`  
+`XMP-drone:FlightZSpeed`  
+`XMP-drone:FocusDistance`  
+`XMP-drone:GimbalPitchDegree`  
+`XMP-drone:GimbalReverse`  
+`XMP-drone:GimbalRollDegree`  
+`XMP-drone:GimbalYawDegree`  
+`XMP-drone:GpsLatitude`  
+`XMP-drone:GpsLongitude`  
+`XMP-drone:GpsStatus`  
+`XMP-drone:LRFStatus`  
+`XMP-drone:LRFTargetAbsAlt`  
+`XMP-drone:LRFTargetAlt`  
+`XMP-drone:LRFTargetDistance`  
+`XMP-drone:LRFTargetLat`  
+`XMP-drone:LRFTargetLon`  
+`XMP-drone:PictureQuality`  
+`XMP-drone:RelativeAltitude`  
+`XMP-drone:RtkDiffAge`  
+`XMP-drone:RtkFlag`  
+`XMP-drone:RtkStdHgt`  
+`XMP-drone:RtkStdLat`  
+`XMP-drone:RtkStdLon`  
+`XMP-drone:SelfData`  
+`XMP-drone:ShutterCount`  
+`XMP-drone:ShutterType`  
+`XMP-drone:SurveyingMode`  
+`XMP-drone:UTCAtExposure`  
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=93096  
+### 4 Notes  
 There may be some overlap with `XMP-drone` tags in `pix4d.config` file. Need to double check.  
-
+  
 ## Aspect Ratio config  
   
 ### 1 Description  
@@ -118,7 +118,7 @@ Tags for the `XMP-BioLifePro` group.
 https://exiftool.org/forum/index.php?msg=66714  
   
 ### 4 Notes  
-These appear to be tags created for private use.  This config can be used as an example for creating XMP tags.
+These appear to be tags created for private use.  This config can be used as an example for creating XMP tags.  
   
 ## Combined Keywords  
   
@@ -219,32 +219,32 @@ https://exiftool.org/forum/index.php?msg=83979
 ### 4 Notes  
 Also see OldestDateTime (make this into link)  
   
-## Elodie tags
+## Elodie tags  
 ### 1 Description  
-Tag for use with the [Elodie media management program](https://github.com/jmathai/elodie)
+Tag for use with the [Elodie media management program](https://github.com/jmathai/elodie)  
 ### 2 Tags created  
-`XMP-elodie:Album`
-### 3 Source
-https://github.com/jmathai/elodie/blob/master/configs/ExifTool_config
+`XMP-elodie:Album`  
+### 3 Source  
+https://github.com/jmathai/elodie/blob/master/configs/ExifTool_config  
 ### 4 Notes  
-Possibly deprecated in favor of `XMP-xmpDM:Album`
-
-## `EmbyCollections`
-### 1 Description
-A tag used with the Emby media server
+Possibly deprecated in favor of `XMP-xmpDM:Album`  
+  
+## `EmbyCollections`  
+### 1 Description  
+A tag used with the Emby media server  
 ### 2 Tags created  
-`XMP-dc:embycollections`
-### 3 Source
-https://exiftool.org/forum/index.php?msg=92728
-
-## Epson Fast Foto scanner `XMP-Prefix0`
-### 1 Description
+`XMP-dc:embycollections`  
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=92728  
+  
+## Epson Fast Foto scanner `XMP-Prefix0`  
+### 1 Description  
 Tag from Epson Fast Foto scanner  
 ### 2 Tags created  
 `-XMP-Prefix0:FFMetaData`  
 ### 3 Source  
-https://exiftool.org/forum/index.php?msg=92506
-
+https://exiftool.org/forum/index.php?msg=92506  
+  
 ## Esko XMP structured tags  
   
 ### 1 Description  
@@ -287,26 +287,26 @@ https://exiftool.org/forum/index.php?msg=72877
 ### 4 Notes  
 Unknown if there are other tags in the `XMP-excire` group  
   
-## `ExtensisFontSense.config`
-### 1 Description
-Config file to edit the `XMP-ExtensisFontSense:Slug` structured tag
+## `ExtensisFontSense.config`  
+### 1 Description  
+Config file to edit the `XMP-ExtensisFontSense:Slug` structured tag  
 ### 2 Tags created  
 #### 1 Structured tag  
 `XMP-ExtensisFontSense:Slug`  
-#### 2 Flattened Tags
-`XMP-ExtensisFontSense:SlugChecksum`
-`XMP-ExtensisFontSense:SlugFamily`
-`XMP-ExtensisFontSense:SlugFontKind`
-`XMP-ExtensisFontSense:SlugFontSense_12_Checksum`
-`XMP-ExtensisFontSense:SlugFoundry`
-`XMP-ExtensisFontSense:SlugOutlineFileSize`
-`XMP-ExtensisFontSense:SlugPostScriptName`
-`XMP-ExtensisFontSense:SlugVersion`
-### 3 Source
+#### 2 Flattened Tags  
+`XMP-ExtensisFontSense:SlugChecksum`  
+`XMP-ExtensisFontSense:SlugFamily`  
+`XMP-ExtensisFontSense:SlugFontKind`  
+`XMP-ExtensisFontSense:SlugFontSense_12_Checksum`  
+`XMP-ExtensisFontSense:SlugFoundry`  
+`XMP-ExtensisFontSense:SlugOutlineFileSize`  
+`XMP-ExtensisFontSense:SlugPostScriptName`  
+`XMP-ExtensisFontSense:SlugVersion`  
+### 3 Source  
 \<need to add link when posted\>  
-### 4 Notes
-It's unknown what program writes this, possibly Adobe InDesign. I found the tag in a PDF file.
-
+### 4 Notes  
+It's unknown what program writes this, possibly Adobe InDesign. I found the tag in a PDF file.  
+  
 ## FacesNotInKeywords  
   
 ### 1 Description  
@@ -668,15 +668,15 @@ https://exiftool.org/forum/index.php?msg=43926
 ### 4 Notes  
 Also see EarliestDate (make this into link)  
   
-## PDF `Categories`
-### 1 Description
-Two custom tags to write `XMP-pdfx:Categories` and `PDF:Categories`. This config is an example of creating user defined tags for PDFs.
+## PDF `Categories`  
+### 1 Description  
+Two custom tags to write `XMP-pdfx:Categories` and `PDF:Categories`. This config is an example of creating user defined tags for PDFs.  
 ### 2 Tags created  
 `XMP-pdfx:Categories`  
 `PDF:Categories`  
-### 3 Source
-https://exiftool.org/forum/index.php?msg=48869
-
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=48869  
+  
 ## PDF bookmark count  
   
 ### 1 Description  
@@ -979,10 +979,10 @@ Tags created by the Silverfast scanning program
 `XMP-Silverfast:ScannerID`  
 `XMP-Silverfast:ScannerVendorID`  
 `XMP-Silverfast:ScanRes`  
-### 3 Source
-https://exiftool.org/forum/index.php?msg=92448
-### 4 Notes
-
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=92448  
+### 4 Notes  
+  
 ## StateAbbrev.config  
   
 ### 1 Description  
@@ -1092,36 +1092,36 @@ Tags use by the the Calibre E-book management program
   
 ### 3 Source  
 https://exiftool.org/forum/index.php?msg=81567  
-
-## `XMP-OpCamera.config`
+  
+## `XMP-OpCamera.config`  
 ### 1 Description  
-Four tags in the `XMP-OpCamera` group. I'm guessing that they have to do with OPlus inc, which is an app that can be found on the Google Store. No other information available.
+Four tags in the `XMP-OpCamera` group. I'm guessing that they have to do with OPlus inc, which is an app that can be found on the Google Store. No other information available.  
 ### 2 Tags created  
 `XMP-OpCamera:MotionPhotoPrimaryPresentationTimestampUs`  
 `XMP-OpCamera:MotionPhotoOwner`  
 `XMP-OpCamera:OLivePhotoVersion`  
 `XMP-OpCamera:VideoLength`  
-### 3 Source
+### 3 Source  
 https://exiftool.org/forum/index.php?msg=94331  
-### 4 Notes
-
+### 4 Notes  
+  
 ## `XMP-utm` tags  
 ### 1 Description  
-User defined XMP tags to hold UTM coordinate data.
+User defined XMP tags to hold UTM coordinate data.  
 ### 2 Tags created  
 `XMP-utm:UTMCoordinates`  
-With edit from the below Notes
+With edit from the below Notes  
 `XMP-utm:UTMEasting`  
 `XMP-utm:UTMNorthing`  
-`XMP-utm:UTMZone`
-### 3 Source
-https://exiftool.org/forum/index.php?msg=43341
-### 4 Notes
+`XMP-utm:UTMZone`  
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=43341  
+### 4 Notes  
 The config as written only has one tag defined. It probably should be expanded to hold the other UTM data.  
-
+  
 After this line  
 `UTMCoordinates => { },`  
-add
+add  
 `UTMEasting => { },`  
 `UTMNorthing => { },`  
 `UTMZone => { },`  
@@ -1170,7 +1170,7 @@ https://exiftool.org/forum/index.php?msg=80852
 ## Storing binary data in XMP tag  
 You can not store arbitrary binary data in XMP.  Commonly Base64 is used to encode data like this.  
 https://exiftool.org/forum/index.php?msg=82170  
-
+  
 # 3 Deprecated/Replaced/Built in User Configs  
 These are user-defined config files that have been merged into the standard exiftool code, are available as stand alone config files in the [standard exiftool archive](https://github.com/exiftool/exiftool/tree/master/config_files), or have been deprecated in some other way.  They can often be used as a source on how to create user defined config files.  
   
@@ -1333,17 +1333,17 @@ research needed
 ### 3 Source  
 https://github.com/exiftool/exiftool/issues/254#issuecomment-2158379465  
   
-## GPS2UTM config
-### 1 Description
-A config file used to turn GPS coordinates into UTM coordinates. Replaced by the [`gps2utm.config` file](https://github.com/exiftool/exiftool/blob/master/config_files/gps2utm.config) in the main archive
+## GPS2UTM config  
+### 1 Description  
+A config file used to turn GPS coordinates into UTM coordinates. Replaced by the [`gps2utm.config` file](https://github.com/exiftool/exiftool/blob/master/config_files/gps2utm.config) in the main archive  
 ### 2 Tags created  
 `Composite:UTMCoordinates`  
 `Composite:UTMEasting`  
 `Composite:UTMNorthing`  
 `Composite:UTMZone`  
-### 3 Source
-https://exiftool.org/forum/index.php?msg=35871
-
+### 3 Source  
+https://exiftool.org/forum/index.php?msg=35871  
+  
 ## Grab first or last four characters of tag name  
   
 ### 1 Description  
@@ -1392,4 +1392,4 @@ Original thread
 https://exiftool.org/forum/index.php?msg=53068  
 Current version  
 https://github.com/exiftool/exiftool/blob/master/config_files/tiff_version.config  
-
+  

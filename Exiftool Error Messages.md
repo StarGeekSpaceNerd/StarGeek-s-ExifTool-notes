@@ -19,6 +19,7 @@ https://exiftool.org/forum/index.php?msg=69788f
 
 # 2 Warning
 Needs definition and how it compares to other warnings
+
 ## Bad length ICC_Profile  
 to do
 ## Bad offset for <TAG>
@@ -59,7 +60,7 @@ Removing the `ICC_Profile` will impact the colors on viewers that read the profi
 In order to keep the profile, the [`-TagsFromFile` option](https://exiftool.org/exiftool_pod.html#tagsFromFile-SRCFILE-or-FMT) must be used to recover the data  
 `exiftool -All= -TagsFromFile @ -ICC_Profile /path/to/files/`
 
-## Invalid EXIF text encoding for &lt;TAG&gt;
+## Invalid EXIF text encoding for <TAG>
 https://exiftool.org/forum/index.php?msg=69733
 
 ## Invalid time string () when shifting TimeCreated
@@ -70,6 +71,9 @@ https://exiftool.org/forum/index.php?msg=75864
 
 ## No writable tags set from ?
 This means exactly what it says. You are attempting to copy tags that do not exist in the source file. Use the command in [FAQ #3](https://exiftool.org/faq.html#Q3) to see what tags are actually available.
+
+## `Warning: Can't convert Canon:TimeZoneCity (not in PrintConv)`
+This warning pops up when the tag being written only accepts a limited number of options. Look up the tag under the appropriate [Tags Names sub page](https://exiftool.org/TagNames/) or in the [Tag Names PDF](https://exiftool.org/TagNames.pdf) to find the list of legal values for that tag.
 
 ## Warning: Unknown file type
 to do
@@ -101,3 +105,4 @@ Warning                         : [minor] Invalid CanonAFInfo data
 Warning                         : [minor] Non-standard ExifIFD tag 0xea1c Padding
 Warning                         : [minor] Non-standard ExifIFD tag 0xea1d OffsetSchema
 Warning                         : [minor] Non-standard IFD0 tag 0xea1c Padding
+

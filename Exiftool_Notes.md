@@ -3,6 +3,7 @@ StarGeek's exiftool notes
 These are my unsorted notes and links to various use exiftool posts. Any suggestions on formatting/grouping these is welcome.  
 
 # 1 Working with the ExifTool forums  
+Notes on working with the forums
 
 ## How to add images to a post  
 To inline an image, you would use the BBCode `[img]`/`[/img]` tags and place a link to the image in between  
@@ -19,7 +20,10 @@ or the height
 `[img height=300]https://i.imgur.com/V2yCBli.png[/img]`  
 The image itself is unaffected and one posted, can be viewed in the original size by clicking on it.  
 
+If the file is too large to add to the forums, you can use a file hosting site like Google Drive, DropBox, Mega.nz, etc and create a share link to the file. If you are using Google Drive, make sure the link is set to "Anyone with a link" instead of "Restricted". See [this post](https://exiftool.org/forum/index.php?msg=92921).  
+
 # 2 Metadata  
+Notes on metadata  
 ## ACDSee regions and sample image  
 Sample image with ACDSee regions  
 https://exiftool.org/forum/index.php?msg=57132  
@@ -71,7 +75,20 @@ https://exiftool.org/forum/index.php?msg=48877
 # 3 Best Practices  
 Things that in my opinion, are the best way for dealing with metadata. Might separate this into a new file and use the full contents instead of just linking to forum posts.  
 
+## Common Mistake #3
+[Common Mistake #3, "Over-scripting"](https://exiftool.org/mistakes.html#M3) says that you shouldn't run exiftool in a loop, running it once for each file. Exiftool's startup time is the biggest performance hit, and doing so will greatly increase processing time.
+
+As an example, in [this post](https://exiftool.org/forum/index.php?msg=92142), when the user looped exiftool, the process took ten minutes. After changing to use [PyExiftool](https://github.com/sylikc/pyexiftool), which uses the [`-stay_open` option](https://exiftool.org/exiftool_pod.html#stay_open-FLAG) and keeps exiftool running in the background, the processing time dropped to 30 seconds.
+
 ## Keep it (tag names) simple  
+When writing tags, use only the tag name, adding the group 0 name (XMP: IPTC: EXIF:) only if necessary to avoid collisions, such as XMP:Headline vs IPTC:Headline.  Use the group 1 names only if absolutely necessary.  And about the only time that is necessary is if you are trying to write a tag that is marked as Avoid.  
+
+Writing to group 1 specific locations without a deep understanding of the metadata can lead to writing to incorrect locations.  As an example, for some reason Sony didn't properly read the EXIF specs and some Sony cameras write the `ModifyDate` tag to the incorrect location (`IFD1` instead of `IFD0`).  And unless you knew beforehand that this was incorrect, it would lead you to thinking that `IFD1` was the correct location.  If you didn't include the specific group, exiftool would by default write to the correct location.  
+
+Additionally, using only the base name will allow exiftool to update all tags with that name. If your command is something like  
+`"-EXIF:ModifyDate=2025:01:01 12:00:00"`
+you are **only** writing the `EXIF:ModifyDate`. Any other `ModifyDate` such as the `XMP:ModifyDate` will not be updated.
+
 https://exiftool.org/forum/index.php?msg=80202  
 
 # 4 External  
@@ -97,21 +114,30 @@ https://exiftool.org/icat/
 In German, can be translated with web browser translation abilities  
 https://web.archive.org/web/20150419003745/http://www.ebv4linux.de/modules.php?name=News&file=article&sid=26  
 
+Technically not lost, because there's [a link](https://exiftool.org/#other_links) and a PDF with translation on the main exiftool page, but I found this while doing a deep dive into the forums.
+
 ## Tom Christiansen (co-author of "Programming Perl") and dealing with UTF-8  
 https://exiftool.org/forum/index.php?msg=7642  
 
 # 6 Unsorted notes  
+
 ## A discussion on deleting metadata  
 https://exiftool.org/forum/index.php?msg=76627  
 
-## Access another tag from within advanced formatting  
+## Access another tag from within advanced formatting (correct)  
+To access a different tag from within an advanced formatting, you would use this, replacing `tag` with the name of the tag (case-sensitive) you are accessing.   
+`$self->GetValue('tag')`
+
+To access a `UserParam` you would use this. `MYPARAM` is case insensitive.
+`$self->Options('UserParam','MYPARAM')`
+
+## Access another tag from within advanced formatting (incorrect)  
 This way should not be used, Needs rewriting.  Instead, `$self->GetValue('tag')` should be used  
 https://exiftool.org/forum/index.php?msg=34104  
 `$$self{VALUE}{TAG}`  
 For example, to remove Make from within the Model tag  
 `exiftool "-title<${Model;s/\\\\s\\\*$$self{VALUE}{Make}\\\\s\\\*//i}" -m`  
-This uses ExifTool internals feature to access the Make tag from within the advanced formatting expression for Model.  But a disadvantage of doing it this way is that you will get a warning due to an uninitialized value in this expression if Make doesn't exist, hence the -m option. The tag is case sensitive.  
-
+This uses ExifTool internals feature to access the Make tag from within the advanced formatting expression for Model.  But a disadvantage of doing it this way is that you will get a warning due to an uninitialized value in this expression if Make doesn't exist, hence the -m option. The tag is case-sensitive.  
 ## Add tag to all files that have matching file in different folder  
 Example, for every jpg in `/path/to/published/2015/`, exiftool will check in `/path/to/library/` for a file with the same name and add "2015" to the `Subject` tag in the matching file  
 `exiftool -subject+=2015 -ext jpg -srcfile /path/to/library/%f.%e /path/to/published/2015/`  
@@ -135,6 +161,10 @@ This can also be done with RegEx.
 `${Filename;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/}`  
 The first option would probably be slightly faster, but if you were doing other edits to the filename extension, then the RegEx would be necessary. For example, I prefer to have a extension of `.Jpg` over `.Jpeg`. This command will change `.jpeg` into `.jpeg`  
 `exiftool "-Filename<${Filename;s/(?<=\.)jpeg$/jpg/i;s/(?<=\.)(\w)(\w+)$/\u$1\L$2/;} /path/to/files/`  
+
+## Checking to see if a specific number of tags exists
+This command checks several tags to see if they exist and increments a variable if they do. If a certain number of these tags do exist, then the `-if` option registers as `true` and the command continues.  
+https://exiftool.org/forum/index.php?msg=71626
 
 ## config files and user-defined tags  
 See the [[User defined tags index]]  
@@ -205,6 +235,13 @@ The group names can be found under the
 `GetGroup` function or using -listg  
 https://exiftool.org/ExifTool.html#GetAllGroups  
 
+## Exiftool is slow reading PDF metadata
+If exiftool is slow to read PDF metadata, it is likely that the PDF has been encrypted. If the PDF can be read without entering a password, it is a no password encrypted PDF. Why such a thing exists is beyond me.
+
+The problem is because an external library to decrypt it could not be found, so the decryption code had to be done is pure Perl. See [this post](https://exiftool.org/forum/index.php?msg=24161).
+
+A no password encrypted PDF can be decrypted with `qpdf`, as shown in [this post](https://exiftool.org/forum/index.php?msg=87766) in the same thread.
+
 ## Exiftool is slower when writing PNG files  
 https://exiftool.org/forum/index.php?msg=89587  
 
@@ -269,6 +306,10 @@ https://exiftool.org/forum/index.php?msg=64462
 ## Google GPS precision in videos  
 Google Photos will not read GPS Latitude/Longitude with a precision of more than five decimals and an Altitude of more than four decimals.  
  https://exiftool.org/forum/index.php?msg=87423  
+
+## Google Photos changed Description to Other
+Around January 2022, Google stopped copying the `XMP:Description`/`IPTC:Caption-Abstract` to their "Description" property and instead copied it to the "Other" property.
+https://exiftool.org/forum/index.php?msg=71217
 
 ## Google Takeout, Rename JSON files to correct copy number location in filename  
 **Google does NOT remove data from your files**  
@@ -454,6 +495,9 @@ PS C:\> exiftool -G1 -a -s -Description y:\!temp\Test4.jpg
 
 ## PowerShell sucks at quoting  
 https://exiftool.org/forum/index.php?msg=80581  
+Use backticks and double all interior single quotes
+https://exiftool.org/forum/index.php?msg=77722  
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7.3  
 
 ## Quicktime delete date/time timestamps  
 https://exiftool.org/forum/index.php?msg=54897  
@@ -517,7 +561,7 @@ https://exiftool.org/forum/index.php?msg=50605
 ## Sorting list type tags  
 simple case insensitive sort  
 https://exiftool.org/forum/index.php?topic=9420.0  
-More complex Natural Order compare  
+More complex Natural Order compare (i.e. the number 1 sorts before the number 10)  
 https://exiftool.org/forum/index.php?msg=83636  
 Code source  
 https://www.perlmonks.org/?node_id=540890  
@@ -531,8 +575,10 @@ This requires the use of the full directory path on the command line. If using o
 https://exiftool.org/forum/index.php?msg=49791  
 
 ## StackOverflow UTF8 GUI changes  
-Examples of how the StackOverflow Windows UTF8 option may affect GUIs  
+Examples of how the StackOverflow Windows UTF8 option may affect GUIs and fonts  
 https://exiftool.org/forum/index.php?msg=72233  
+It also affects ISO-8859-1 (extended ASCII) characters   
+https://www.youtube.com/watch?v=QFAyxoGTgGE
 
 ## System Timestamps prior to 1970  
 This problem has been fixed as of Version 12.84  
@@ -622,6 +668,12 @@ https://exiftool.org/forum/index.php?msg=78475
 
 ## Why exiftool doesn't write GeoTiff tags  
 https://exiftool.org/forum/index.php?msg=12451  
+
+## Windows unable to display metadata and thumbnail from a video  
+Windows will chock and stop displaying metadata in the Properties window if there is too much metadata
+
+If the file contains the Apple `FullFrameRatePlaybackIntent` tag, then it will not display a thumbnail or any metadata.  
+https://exiftool.org/forum/index.php?msg=90410  
 
 ## Write to multiple tags at the same time using a wildcard or a shortcut.  
 https://exiftool.org/forum/index.php?msg=75792  

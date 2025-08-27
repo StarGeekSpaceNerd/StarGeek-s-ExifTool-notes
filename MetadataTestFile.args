@@ -21,7 +21,7 @@
 #		grep -i -v -f BaseList.txt listXoutput.txt > outputFile.txt
 #
 #	The result should be all new writable tags. There are many that should be removed, such as all MakerNotes.
-#	This list also contains many t	ags that cannot be created, only edited, such as tags in EXIF SubIFD. This list needs
+#	This list also contains many tags that cannot be created, only edited, such as tags in EXIF SubIFD. This list needs
 #	to be worked through to find the format needed to add these tags
 #
 # 	Copy final list of new tags to the base list, separating into the proper categories (Date/time tags, tags that can't be saved as group:name  )
@@ -129,15 +129,46 @@
 -PNG:CreationTime=2008:07:25 10:35:01
 -PNG:ModDate=2008:09:11 09:42:20
 -PNG:ModifyDate=2009:09:28 12:16:49
-# Misc random times for future time tags
-#2011:12:18 11:10:21
-#2013:03:28 09:34:42
-#2016:03:16 05:41:01
-#2016:05:01 04:44:05
-#2016:11:14 22:45:34
+-QuickTime:ModifyDate=2010:05:22 19:58:28
+-QuickTime:CreateDate=2010:09:02 06:10:21
+-QuickTime:PreviewDate=2010:12:13 19:44:01
+-UserData:ContentCreateDate=2013:03:28 09:34:42
+-UserData:DateTimeOriginal=2011:12:18 11:10:21
+
+# Quicktime Track time stamps
+# Sets time stamp on all tracks, then different values for the first four tracks
+# Any track time stamp after the fourth track will have the same value as the first
+
+-Quicktime:MediaCreateDate=2004-01-12 05:21:45
+-Quicktime:MediaModifyDate=1991-11-16 13:35:27
+-QuickTime:TrackCreateDate=1995-11-29 09:49:39
+-QuickTime:TrackModifyDate=1994-02-20 22:18:22
+
+-Track1:MediaCreateDate=2004-09-07 01:38:56
+-Track1:MediaModifyDate=2009-12-16 17:09:02
+-Track1:TrackCreateDate=1991-08-04 17:20:48
+-Track1:TrackModifyDate=2002-08-11 02:49:56
+
+-Track2:MediaCreateDate=2010-06-11 04:46:39
+-Track2:MediaModifyDate=1991-07-08 23:44:18
+-Track2:TrackCreateDate=1991-07-08 23:44:18
+-Track2:TrackModifyDate=2012-02-11 01:47:48
+
+-Track3:MediaCreateDate=2013-03-18 06:18:03
+-Track3:MediaModifyDate=2011-12-25 01:36:45
+-Track3:TrackCreateDate=2012-02-05 23:08:55
+-Track3:TrackModifyDate=2010-07-12 17:29:19
+
+-Track4:MediaCreateDate=2005-04-23 09:03:48
+-Track4:MediaModifyDate=2011-12-19 01:53:43
+-Track4:TrackCreateDate=2014-11-17 04:44:53
+-Track4:TrackModifyDate=1997-12-03 22:19:27
+
+
+
 
 ################
-# GPS Metadata
+# GPS Metadata, EXIF and XMP
 #
 #	GPS tags:	5°20'48.4"N 3°59'07.0"W
 #				5.346783, -3.985286
@@ -212,6 +243,10 @@
 -XMP-iptcExt:LocationShownGPSLongitude=52.8812555555
 -XMP-iptcExt:RatingRegionGPSLatitude=-1 
 -XMP-iptcExt:RatingRegionGPSLongitude=-1
+
+################
+# Quicktime GPS tags
+################
 -ItemList:GPSCoordinates=38.9071923,-77.0368707,9
 -Keys:GPSCoordinates=36.2678855,-112.3535253,-34
 -UserData:GPSCoordinates=36.5322649,-116.9325408,-55
@@ -250,6 +285,22 @@
 # them and need to be checked against this file to 
 # figure out the tag.
 ################
+-UserData:CX=5.2
+-UserData:CY=67
+-UserData:CameraAngle=23.4
+-UserData:CameraPitch=64.2
+-UserData:CameraRoll=86.3
+-UserData:CameraYaw=2.2
+-UserData:Classification=Entity=User Index=17505 ta:Classification
+-UserData:LoopStyle=Palindromic
+-UserData:PlayAllFrames=9
+-UserData:PlaySelection=43
+-UserData:Rads=6.74
+-UserData:SerialNumberHash=ecebdadaaceb2a57e6beb1ac10
+-UserData:UserRating=3
+-UserData:WindowLocation=86
+-UserData:Yaw=32.54
+-UserData:Year=1978
 -QuickTime:Rotation=270
 -PNG:PixelsPerUnitX=9
 -PNG:PixelsPerUnitY=45
@@ -354,15 +405,10 @@
 -XMP-exif:OECFColumns=5
 -XMP-exif:OECFRows=6
 -XMP-exif:OECFValues=7
--EXIF:PhotographicSensitivity=444
 -XMP-exifEX:PhotographicSensitivity=333
 -EXIF:SubSecTime=.111
 -EXIF:SubSecTimeOriginal=.222
 -EXIF:SubSecTimeDigitized=.333
--EXIF:PixelXDimension=5
--XMP-exif:PixelXDimension=6
--EXIF:PixelYDimension=7
--XMP-exif:PixelYDimension=8
 -EXIF:CompressedBitsPerPixel=.2
 -XMP-exif:CompressedBitsPerPixel=.8
 -EXIF:Gamma=.1
@@ -729,14 +775,153 @@
 -JFIF:XResolution=432
 -JFIF:YResolution=2131
 
-
+################
 # Regions tags
+################
 -XMP-mwg-rs:RegionInfo={AppliedToDimensions={H=1749,Unit=xmp:RegionAppliedToDimensionsUnit,W=1205},RegionList=[{Area={H=0.37972076,Unit=xmp:RegionAreaUnit,W=0.450003815,X=0.589997711,Y=0.18986038},Name=XMP-mwg-rs:RegionName,Type=Face,SeeAlso=xmp:RegionSeeAlso,BarCodeValue=xmp:RegionBarCodeValue,Description=xmp:RegionDescription}]}
 -XMP-MP:RegionInfoMP={DateRegionsValid=1991:11:08 04:50:35,Regions=[{PersonDisplayName=XMP-MP:RegionPersonDisplayName,PersonEmailDigest=XMP-MP:RegionPersonEmailDigest,PersonLiveIdCID=XMP-MP:RegionPersonLiveIdCID,PersonSourceID=XMP-MP:RegionPersonSourceID,Rectangle=0.377004654|, 0.04228275|, 0.211993591|, 0.187685969}]}
 
 ################
+# Quicktime tags that are marked as avoid and can only be written through group 7 ID name
+################
+-ItemList:ID-a9aut:Author=ItemList:ID-a9aut:Author (Marked Avoid)
+-ItemList:ID-a9com:Composer=ItemList:ID-a9com:Composer (Marked Avoid)
+-ItemList:ID-a9cpy:Copyright=ItemList:ID-a9cpy:Copyright (Marked Avoid)
+-ItemList:ID-albm:Album=ItemList:ID-albm:Album (Marked Avoid)
+-ItemList:ID-desc:Description=ItemList:ID-desc:Description (Written by ffmpeg, Marked Avoid)
+-ItemList:ID-dscp:Description=ItemList:ID-dscp:Description (Marked Avoid)
+-ItemList:ID-gnre:Genre=Jazz+Funk
+-ItemList:ID-grup:Grouping=ItemList:ID-grup:Grouping (Marked Avoid)
+-ItemList:ID-titl:Title=ItemList:ID-titl:Title (Marked Avoid)
+-UserData:ID-40day:ContentCreateDate=2025:02:24 17:12:38-08:00
+-UserData:ID-40mak:Make=UserData:ID-40mak:Make (Marked Avoid)
+-UserData:ID-40mod:Model=UserData:ID-40mod:Model (Marked Avoid)
+-UserData:ID-40swr:SoftwareVersion=UserData:ID-40swr:SoftwareVersion (Marked Avoid)
+-UserData:ID-40xyz:GPSCoordinates=37.297817 -113.02877 90
+-UserData:ID-CNMN:Model=UserData:ID-CNMN:Model (Marked Avoid)
+-UserData:ID-FIRM:FirmwareVersion=UserData:ID-FIRM:FirmwareVersion (Marked Avoid)
+-UserData:ID-_yaw:Yaw=84.2
+-UserData:ID-a9mdl:Model=UserData:ID-a9mdl:Model (Marked Avoid)
+-UserData:ID-a9wrt:Composer=UserData:id-a9wrt:Composer (Marked Avoid)
+-UserData:ID-albm:Album=UserData:ID-albm:Album (Marked Avoid)
+-UserData:ID-auth:Author=UserData:ID-auth:Author (Marked Avoid)
+-UserData:ID-clsf:Classification=Entity=Clas Index=29545 fication
+-UserData:ID-cmnm:Model=UserData:ID-cmnm:Model (Marked Avoid)
+-UserData:ID-coll:CollectionName=UserData:ID-coll:CollectionName (Marked Avoid)
+-UserData:ID-cprt:Copyright=UserData:ID-cprt:Copyright (Marked Avoid)
+-UserData:ID-dscp:Description=UserData:ID-dscp:Description (Marked Avoid)
+-UserData:ID-gnre:Genre=UserData:ID-gnre:Genre (Marked Avoid)
+-UserData:ID-loci:LocationInformation=LocationInformation Role=shooting Lat=999.00000 Lon=999.00000 Alt=0.00 Body= Notes=
+-UserData:ID-perf:Performer=UserData:ID-perf:Performer (Marked Avoid)
+-UserData:ID-ptch:Pitch=78.42
+-UserData:ID-roll:Roll=32.89420013
+-UserData:ID-rtng:Rating=Entity=Rati Criteria=ng
+-UserData:ID-titl:Title=Title (Marked Avoid)
+-UserData:ID-urat:UserRating=7
+-UserData:ID-yrrc:Year=1966
+
+################
+# Special: The only way to tell the difference between each
+# LevelMeter tag is to use -G7 to get the tag ID
+################
+-UserData:ID-Lvlm:LevelMeter=78.4
+-UserData:ID-lvlm:LevelMeter=92.6
+
+################
 # all the rest
 ################
+-UserData:Album=UserData:Album
+-UserData:AlbumArtist=UserData:AlbumArtist
+-UserData:ApertureMode=UserData:ApertureMode
+-UserData:Arranger=UserData:Arranger
+-UserData:ArrangerKeywords=UserData:ArrangerKeywords
+-UserData:Artist=UserData:Artist
+-UserData:Author=UserData:Author
+-UserData:CameraID=UserData:CameraID
+-UserData:ClipFileName=UserData:ClipFileName
+-UserData:ClipID=UserData:ClipID
+-UserData:CodeVersion=UserData:CodeVersion
+-UserData:CollectionName=UserData:CollectionName
+-UserData:Comment=UserData:Comment
+-UserData:Composer=UserData:Composer
+-UserData:ComposerKeywords=UserData:ComposerKeywords
+-UserData:CompressorVersion=UserData:CompressorVersion
+-UserData:ContentDistributorID=UserData:ContentDistributorID
+-UserData:ContentID=UserData:ContentID
+-UserData:Copyright=UserData:Copyright
+-UserData:CoverURI=UserData:CoverURI
+-UserData:Description=UserData:Description
+-UserData:Director=UserData:Director
+-UserData:Edit1=UserData:Edit1
+-UserData:Edit2=UserData:Edit2
+-UserData:Edit3=UserData:Edit3
+-UserData:Edit4=UserData:Edit4
+-UserData:Edit5=UserData:Edit5
+-UserData:Edit6=UserData:Edit6
+-UserData:Edit7=UserData:Edit7
+-UserData:Edit8=UserData:Edit8
+-UserData:Edit9=UserData:Edit9
+-UserData:Encoder=UserData:Encoder
+-UserData:EncoderID=UserData:EncoderID
+-UserData:FieldOfView=UserData:FieldOfView
+-UserData:FirmwareVersion=UserData:FirmwareVersion
+-UserData:Format=UserData:Format
+-UserData:GarminSettings=UserData:GarminSettings
+-UserData:GarminSoftware=UserData:GarminSoftware
+-UserData:Genre=UserData:Genre
+-UserData:GoProType=UserData:GoProType
+-UserData:Grouping=UserData:Grouping
+-UserData:HintVersion=UserData:HintVersion
+-UserData:ISRCCode=UserData:ISRCCode
+-UserData:IconURI=UserData:IconURI
+-UserData:InfoURL=UserData:InfoURL
+-UserData:Information=UserData:Information
+-UserData:LensSerialNumber=UserData:LensSerialNumber
+-UserData:LocationInformation=UserData:LocationInformation
+-UserData:Lyrics=UserData:Lyrics
+-UserData:LyricsURI=UserData:LyricsURI
+-UserData:Make=UserData:Make
+-UserData:MakerNotePentaxUnknown=UserData:MakerNotePentaxUnknown
+-UserData:MakerURL=UserData:MakerURL
+-UserData:Model=UserData:Model
+-UserData:Name=UserData:Name
+-UserData:Performer=UserData:Performer
+-UserData:PerformerKeywords=UserData:PerformerKeywords
+-UserData:PerformerURL=UserData:PerformerURL
+-UserData:Performers=UserData:Performers
+-UserData:Pitch=UserData:Pitch
+-UserData:PlayMode=UserData:PlayMode
+-UserData:PreviewImage=UserData:PreviewImage
+-UserData:Producer=UserData:Producer
+-UserData:ProducerKeywords=UserData:ProducerKeywords
+-UserData:Rating=UserData:Rating
+-UserData:RecordLabelName=UserData:RecordLabelName
+-UserData:RecordLabelURL=UserData:RecordLabelURL
+-UserData:RecordingCopyright=UserData:RecordingCopyright
+-UserData:ReelName=UserData:ReelName
+-UserData:Requirements=UserData:Requirements
+-UserData:Roll=UserData:Roll
+-UserData:Scene=UserData:Scene
+-UserData:SerialNumber=UserData:SerialNumber
+-UserData:ShotName=UserData:ShotName
+-UserData:SoftwareVersion=UserData:SoftwareVersion
+-UserData:SongWriter=UserData:SongWriter
+-UserData:SongWriterKeywords=UserData:SongWriterKeywords
+-UserData:SourceCredits=UserData:SourceCredits
+-UserData:SpeedX=UserData:SpeedX
+-UserData:SpeedY=UserData:SpeedY
+-UserData:SpeedZ=UserData:SpeedZ
+-UserData:StartTimeSampleSize=UserData:StartTimeSampleSize
+-UserData:StartTimeScale=UserData:StartTimeScale
+-UserData:StartTimecode=UserData:StartTimecode
+-UserData:Subtitle=UserData:Subtitle
+-UserData:SubtitleKeywords=UserData:SubtitleKeywords
+-UserData:Title=UserData:Title
+-UserData:Track=UserData:Track
+-UserData:TrackType=UserData:TrackType
+-UserData:UnknownTags=UserData:UnknownTags
+-UserData:UnknownThumbnail=UserData:UnknownThumbnail
+-UserData:Vendor=UserData:Vendor
 -PNG:AestheticScore=PNG:AestheticScore
 -PNG:Artist=PNG:Artist
 -PNG:Author=PNG:Author
@@ -2012,6 +2197,9 @@
 -XMP-xmpTPg:SwatchColorantSwatchName=XMP-xmpTPg:SwatchColorantSwatchName
 -XMP-xmpTPg:SwatchColorantType=XMP-xmpTPg:SwatchColorantType
 -XMP-xmpTPg:SwatchGroupName=-XMP-xmpTPg:SwatchGroupName
+-XMP-Device:AppInfoApplication=XMP-Device:AppInfoApplication
+-XMP-Device:AppInfoItemURI=XMP-Device:AppInfoItemURI
+-XMP-Device:AppInfoVersion=XMP-Device:AppInfoVersion
 
 ################
 # Not set

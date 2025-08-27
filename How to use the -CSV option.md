@@ -1,3 +1,5 @@
+**Under construction and incomplete**
+
 # The exiftool CSV option
 The way the CSV option works in exiftool can be a bit confusing.
 

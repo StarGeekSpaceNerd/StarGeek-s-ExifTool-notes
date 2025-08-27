@@ -239,7 +239,7 @@ https://exiftool.org/forum/index.php?msg=92728
 
 ## Epson Fast Foto scanner `XMP-Prefix0`
 ### 1 Description
-Tag from Epson Fast Foto scanner   
+Tag from Epson Fast Foto scanner  
 ### 2 Tags created  
 `-XMP-Prefix0:FFMetaData`  
 ### 3 Source  
@@ -291,8 +291,8 @@ Unknown if there are other tags in the `XMP-excire` group
 ### 1 Description
 Config file to edit the `XMP-ExtensisFontSense:Slug` structured tag
 ### 2 Tags created  
-#### 1 Structured tag   
-`XMP-ExtensisFontSense:Slug`   
+#### 1 Structured tag  
+`XMP-ExtensisFontSense:Slug`  
 #### 2 Flattened Tags
 `XMP-ExtensisFontSense:SlugChecksum`
 `XMP-ExtensisFontSense:SlugFamily`
@@ -303,7 +303,7 @@ Config file to edit the `XMP-ExtensisFontSense:Slug` structured tag
 `XMP-ExtensisFontSense:SlugPostScriptName`
 `XMP-ExtensisFontSense:SlugVersion`
 ### 3 Source
-\<need to add link when posted\> 
+\<need to add link when posted\>  
 ### 4 Notes
 It's unknown what program writes this, possibly Adobe InDesign. I found the tag in a PDF file.
 
@@ -1119,7 +1119,7 @@ https://exiftool.org/forum/index.php?msg=43341
 ### 4 Notes
 The config as written only has one tag defined. It probably should be expanded to hold the other UTM data.  
 
-After this line   
+After this line  
 `UTMCoordinates => { },`  
 add
 `UTMEasting => { },`  
